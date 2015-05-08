@@ -79,135 +79,16 @@
         android:layout_alignRight="@+id/ajout"
         android:layout_alignEnd="@+id/ajout" />
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Titre:"
-        android:id="@+id/titreInfo"
-        android:layout_marginTop="28dp"
+        android:id="@+id/listInfor"
         android:layout_below="@+id/biblio"
-        android:layout_alignRight="@+id/couverture"
-        android:layout_alignEnd="@+id/couverture" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/ajout"
+        android:layout_toStartOf="@+id/ajout" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Auteur:"
-        android:id="@+id/auteurInfo"
-        android:layout_below="@+id/titreInfo"
-        android:layout_alignLeft="@+id/titreInfo"
-        android:layout_alignStart="@+id/titreInfo"
-        android:layout_marginTop="22dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Isbn:"
-        android:id="@+id/isbnInfo"
-        android:layout_below="@+id/auteurInfo"
-        android:layout_alignRight="@+id/titreInfo"
-        android:layout_alignEnd="@+id/titreInfo"
-        android:layout_marginTop="22dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Genre:"
-        android:id="@+id/genreInfo"
-        android:layout_below="@+id/isbnInfo"
-        android:layout_alignLeft="@+id/isbnInfo"
-        android:layout_alignStart="@+id/isbnInfo"
-        android:layout_marginTop="24dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Langue:"
-        android:id="@+id/langueInfo"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/genreInfo"
-        android:layout_alignLeft="@+id/genreInfo"
-        android:layout_alignStart="@+id/genreInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Publié le:"
-        android:id="@+id/publieInfo"
-        android:layout_alignTop="@+id/langueInfo"
-        android:layout_toRightOf="@+id/biblio"
-        android:layout_toEndOf="@+id/biblio" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lu:"
-        android:id="@+id/luInfo"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/emprunteInfo"
-        android:layout_alignLeft="@+id/emprunteInfo"
-        android:layout_alignStart="@+id/emprunteInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favoris:"
-        android:id="@+id/favorisInfo"
-        android:layout_alignTop="@+id/luInfo"
-        android:layout_alignLeft="@+id/preteInfo"
-        android:layout_alignStart="@+id/preteInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Note Personnelle:"
-        android:id="@+id/notpInfo"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/favorisInfo"
-        android:layout_alignLeft="@+id/favorisInfo"
-        android:layout_alignStart="@+id/favorisInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Emprunté à :"
-        android:id="@+id/emprunteInfo"
-        android:layout_below="@+id/langueInfo"
-        android:layout_alignLeft="@+id/langueInfo"
-        android:layout_alignStart="@+id/langueInfo"
-        android:layout_marginTop="26dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Preté:"
-        android:id="@+id/preteInfo"
-        android:layout_alignTop="@+id/emprunteInfo"
-        android:layout_alignLeft="@+id/publieInfo"
-        android:layout_alignStart="@+id/publieInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Note:"
-        android:id="@+id/noteInfo"
-        android:layout_alignTop="@+id/notpInfo"
-        android:layout_alignLeft="@+id/luInfo"
-        android:layout_alignStart="@+id/luInfo" />
-
-    <ImageView
-        android:contentDescription="row"
-        android:id="@+id/couverture"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" >
-    </ImageView>
-
-
-    />
 
 </RelativeLayout>
 
