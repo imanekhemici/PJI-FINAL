@@ -14,6 +14,10 @@ public interface LivreDao extends Dao<Livre, Integer> {
 
     public List findAll() ;
 
+    public List findAllPanier();
+
+    public List findAllFavoris();
+
 
     public Livre findById(int id);
 

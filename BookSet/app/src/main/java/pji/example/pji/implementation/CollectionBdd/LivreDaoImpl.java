@@ -12,7 +12,7 @@ import pji.example.pji.implementation.Collection.Livre;
 /**
  * Created by imane khemici on 08/04/15.
  */
-public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDao{
+public class    LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDao{
 
 
  public LivreDaoImpl(ConnectionSource connectionSource)
@@ -30,6 +30,35 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         }
         return livres;
     }
+
+    public List findAllPanier(){
+        List<Livre> resultat = new ArrayList();
+        List<Livre> all = new ArrayList();
+        all =  findAll();
+        for(Livre livre1 : all){
+            if(livre1.isPanier() == true){
+                resultat.add(livre1);
+            }
+
+        }
+        return resultat;
+
+    }
+
+    public List findAllFavoris(){
+
+        List<Livre> resultat = new ArrayList();
+        List<Livre> all = new ArrayList();
+        all =  findAll();
+        for(Livre livre1 : all){
+            if(livre1.isFavori() == true){
+                resultat.add(livre1);
+            }
+
+        }
+        return resultat;
+    }
+
 
     public Livre findById(int id) {
         Livre livres = new Livre();
