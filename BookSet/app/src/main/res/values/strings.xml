@@ -28,6 +28,7 @@
     <string name="title_activity_ajout_element_suite">ajoutElementSuite</string>
 
     <string name="hello_world">Hello world!</string>
+
     <string name="title_activity_ajouter_element_man_suite2">ajouter_element_man_suite2</string>
     <string name="title_activity_confirmation_ajout">ConfirmationAjout</string>
     <string name="title_activity_confirmation">Confirmation</string>
@@ -35,6 +36,8 @@
     <string name="title_activity_recherche">RechercheActivity</string>
     <string name="title_activity_resulat">ResulatActivity</string>
     <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_information_livre">InformationLivre</string>
+
 
     <string-array name="settings_array">
         <item>Accueil</item>
@@ -42,4 +45,5 @@
         <item>Panier</item>
 
     </string-array>
+
 </resources>

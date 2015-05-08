@@ -4,7 +4,6 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import pji.example.pji.implementation.CollectionBdd.LivreDaoImpl;
 
@@ -45,7 +44,7 @@ public class Livre implements Serializable{
         return genre;
     }
 
-    public Date getPublie_le() {
+    public String getPublie_le() {
         return publie_le;
     }
 
@@ -101,7 +100,7 @@ public class Livre implements Serializable{
         this.genre = genre;
     }
 
-    public void setPublie_le(Date publie_le) {
+    public void setPublie_le(String publie_le) {
         this.publie_le = publie_le;
     }
 
@@ -168,7 +167,7 @@ public class Livre implements Serializable{
     @DatabaseField (columnName = "genre", canBeNull = false)
     private String genre;
     @DatabaseField (columnName = "publie", canBeNull = true)
-    private Date publie_le;
+    private String publie_le;
     @DatabaseField (columnName = "note", canBeNull = true)
     private float note;
     @DatabaseField (columnName = "notePerso", canBeNull = true)

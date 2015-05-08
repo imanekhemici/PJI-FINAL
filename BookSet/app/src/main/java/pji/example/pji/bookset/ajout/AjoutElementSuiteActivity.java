@@ -10,12 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.bookset.R;
+import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.implementation.Collection.Livre;
 
 
@@ -56,13 +52,7 @@ public class AjoutElementSuiteActivity extends ActionBarActivity {
 
             EditText publie = (EditText) findViewById(R.id.publie);
             String publie_s = publie.getText().toString();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
-            try {
-                Date d = sdf.parse(publie_s);
-                livre.setPublie_le(d);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+               livre.setPublie_le(publie_s);
 
             RatingBar note_tex = (RatingBar) findViewById(R.id.note);
             float note = note_tex.getRating();
