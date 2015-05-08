@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pji.example.pji.bookset" >
+
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="false" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".accueil.AccueilActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ajout.AjouterActivity"
+            android:label="@string/title_activity_ajouter_element"
+            android:parentActivityName=".accueil.AccueilActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".accueil.AccueilActivity" />
+        </activity>
+        <activity
+            android:name=".ajout.AjouterElementActivity"
+            android:label="@string/title_activity_ajouter_element_activity"
+            android:parentActivityName=".ajout.AjouterActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ajout.AjouterActivity" />
+        </activity>
+        <activity
+            android:name=".ajout.AjoutElementSuiteActivity"
+            android:label="@string/title_activity_ajout_element_suite" >
+        </activity>
+        <activity
+            android:name=".ajout.AjouterElementManSuite2Activity"
+            android:label="@string/title_activity_ajouter_element_man_suite2" >
+        </activity>
+        <activity
+            android:name=".ajout.ConfirmationAjout"
+            android:label="@string/title_activity_confirmation_ajout" >
+        </activity>
+        <activity
+            android:name=".ajout.Confirmation"
+            android:label="@string/title_activity_confirmation" >
+        </activity>
+        <activity
+            android:name=".recherche.RechercheChoixActivity"
+            android:label="@string/title_activity_recherche_choix" >
+        </activity>
+        <activity
+            android:name=".recherche.RechercheActivity"
+            android:label="@string/title_activity_recherche" >
+        </activity>
+        <activity
+            android:name=".recherche.ResulatActivity"
+            android:label="@string/title_activity_resulat" >
+        </activity>
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InformationActivity"
+            android:label="@string/title_activity_information" >
+        </activity>
+    </application>
+
+</manifest>
