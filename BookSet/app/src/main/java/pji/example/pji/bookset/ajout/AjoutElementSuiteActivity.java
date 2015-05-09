@@ -51,7 +51,7 @@ public class AjoutElementSuiteActivity extends Methodes {
 
             EditText publie = (EditText) findViewById(R.id.publie);
             String publie_s = publie.getText().toString();
-               livre.setPublie_le(publie_s);
+            livre.setPublie_le(publie_s);
 
             RatingBar note_tex = (RatingBar) findViewById(R.id.note);
             float note = note_tex.getRating();
@@ -77,6 +77,10 @@ public class AjoutElementSuiteActivity extends Methodes {
             boolean mappartient = mappartient_c.isChecked();
 
             livre.setMappartient(mappartient);
+
+            CheckBox panier_c = (CheckBox) findViewById(R.id.panier);
+            boolean panier = panier_c.isChecked();
+            livre.setPanier(panier);
 
         Intent intent = new Intent(this, AjouterElementManSuite2Activity.class);
 

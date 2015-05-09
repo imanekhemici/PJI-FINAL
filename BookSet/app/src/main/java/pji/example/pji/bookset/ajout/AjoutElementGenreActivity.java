@@ -1,26 +1,27 @@
-package pji.example.pji.bookset.recherche;
+package pji.example.pji.bookset.ajout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import pji.example.pji.bookset.R;
-import pji.example.pji.implementation.extra.Methodes;
 
-
-public class RechercheChoixActivity extends Methodes {
-
+public class AjoutElementGenreActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recherche_choix);
+        setContentView(R.layout.activity_ajout_element_genre);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_recherche_choix, menu);
+        getMenuInflater().inflate(R.menu.menu_ajout_element_genre, menu);
         return true;
     }
 
@@ -38,5 +39,10 @@ public class RechercheChoixActivity extends Methodes {
 
         return super.onOptionsItemSelected(item);
     }
+    public void suite(View view){
 
+        Intent intent = new Intent(this,AjoutElementSuiteActivity.class);
+        startActivity(intent);
+
+    }
 }

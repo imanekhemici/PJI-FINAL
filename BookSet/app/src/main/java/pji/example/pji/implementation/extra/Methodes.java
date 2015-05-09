@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.bookset.ajout.AjouterActivity;
 import pji.example.pji.bookset.ajout.AjouterElementActivity;
+import pji.example.pji.bookset.recherche.RechercheActivity;
 import pji.example.pji.bookset.recherche.RechercheChoixActivity;
 
 /**
@@ -85,5 +86,8 @@ public class Methodes  extends ActionBarActivity {
         Intent intent = new Intent(this, AjouterElementActivity.class);
         startActivity(intent);
     }
-
+    public void rechercheManuelle(View view){
+        Intent intent = new Intent(this, RechercheActivity.class);
+        startActivity(intent);
+    }
 }

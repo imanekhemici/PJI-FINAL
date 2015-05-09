@@ -53,6 +53,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/isbn"
         android:hint="Isbn"
+        android:numeric="integer"
+        android:maxLength="13"
         android:width="300dp"
         android:gravity="center"
         android:layout_below="@+id/auteur"
@@ -71,17 +73,6 @@
         android:layout_alignLeft="@+id/isbn"
         android:layout_alignStart="@+id/isbn" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/genre"
-        android:hint="genre"
-        android:width="300dp"
-        android:gravity="center"
-        android:layout_below="@+id/langue"
-        android:layout_alignLeft="@+id/langue"
-        android:layout_alignStart="@+id/langue"
-        android:layout_marginTop="35dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,4 +94,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/annuler"
         android:layout_toEndOf="@+id/annuler" />
+
+
 </RelativeLayout>

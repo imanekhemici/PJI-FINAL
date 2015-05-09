@@ -1,7 +1,6 @@
 package pji.example.pji.implementation.CollectionBdd;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
-import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
@@ -33,6 +32,22 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
     }
     //Par titre
     public List findByTitle(String titre) throws SQLException {
+        List<Livre> livres = new ArrayList<>();
+        List<Livre> resultat = new ArrayList();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getTitre().equals(titre)){
+                    resultat.add(livre);
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+
+
+/**
         PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
         try {
@@ -42,11 +57,24 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
             e.printStackTrace();
         }
         return result;
-
+*/
     }
     //Isbn
     public List findByIsbn(String isbn) {
-        PreparedQuery<Livre> requete = null;
+        List<Livre> livres = new ArrayList<>();
+        List<Livre> resultat = new ArrayList();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getIsbn().equals(isbn)){
+                    resultat.add(livre);
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+        /**PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
 
         try {
@@ -55,12 +83,25 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return result;*/
 
     }
     //Auteur
     public List findByAuteur(String auteur){
-        PreparedQuery<Livre> requete = null;
+        List<Livre> livres = new ArrayList<>();
+        List<Livre> resultat = new ArrayList();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getAuteur().equals(auteur)){
+                    resultat.add(livre);
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+       /** PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
 
         try {
@@ -69,13 +110,26 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return result;*/
 
     }
 
     @Override
     public List findByGenre(String genre) {
-        PreparedQuery<Livre> requete = null;
+        List<Livre> livres = new ArrayList<>();
+        List<Livre> resultat = new ArrayList();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getGenre().equals(genre)){
+                    resultat.add(livre);
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+       /** PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
 
         try {
@@ -84,12 +138,25 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return result;*/
     }
 
     @Override
     public List findByLangue(String langue) {
-        PreparedQuery<Livre> requete = null;
+        List<Livre> livres = new ArrayList<>();
+        List<Livre> resultat = new ArrayList();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getLangue().equals(langue)){
+                    resultat.add(livre);
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+        /**PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
 
         try {
@@ -98,7 +165,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return result;*/
     }
 
 

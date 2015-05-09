@@ -53,5 +53,6 @@
             <item>Langue</item>
             <item>Genre</item>
         </string-array>
+        <string name="title_activity_ajout_element_genre">AjoutElementGenreActivity</string>
 
 </resources>

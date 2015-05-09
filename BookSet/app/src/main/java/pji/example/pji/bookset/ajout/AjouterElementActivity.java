@@ -1,5 +1,7 @@
 package pji.example.pji.bookset.ajout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,7 +43,9 @@ public class AjouterElementActivity extends Methodes {
         return super.onOptionsItemSelected(item);
     }
 
-    public void suivant(View view){
+    public void suivant(View view) {
+
+        Livre livre = new Livre();
 
         EditText text = (EditText) findViewById(R.id.titre);
         String titre = text.getText().toString();
@@ -49,15 +53,53 @@ public class AjouterElementActivity extends Methodes {
         String auteur = text.getText().toString();
         text = (EditText) findViewById(R.id.isbn);
         String isbn = text.getText().toString();
-        text = (EditText) findViewById(R.id.genre);
-        String genre =  text.getText().toString();
 
-        Livre livre = new Livre(titre,auteur,isbn,genre);
+        EditText langue_t = (EditText) findViewById(R.id.langue);
+        String langue = langue_t.getText().toString();
 
+        if (titre.equals("") | auteur.equals("") | isbn.equals("")) {
 
-        Intent intent = new Intent(this, AjoutElementSuiteActivity.class);
-        intent.putExtra("livre",livre);
-        startActivity(intent);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Veuillez remplir les champs vides")
+                    .setTitle("Champs vide");
+
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                }
+            });
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } else {
+
+            if ((isbn.length() !=10) && (isbn.length() != 13)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("Isbn-10 or Isbn-13")
+                        .setTitle("Isbn");
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else {
+                livre.setTitre(titre);
+                livre.setAuteur(auteur);
+                livre.setIsbn(isbn);
+                livre.setLangue(langue);
+                Intent intent = new Intent(this, AjoutElementGenreActivity.class);
+                intent.putExtra("livre", livre);
+                startActivity(intent);
+            }
+        }
     }
 
 
