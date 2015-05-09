@@ -19,9 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.sql.SQLException;
@@ -129,8 +133,44 @@ public class    AccueilActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.accueil, menu);
+        inflater.inflate(R.menu.menu_main_activity_actions, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.synchroniser:
+                openSynchroniser();
+                return true;
+            case R.id.configurer:
+                openConfigurer();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void openConfigurer() {
+
+        FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
+        TextView text = new TextView(this);
+        text.setText("Afficher par : ");
+        Spinner choix = new Spinner(this);
+        frame.addView(text, 0);
+        frame.addView(choix, 1);
+    }
+
+    private void openSynchroniser() {
+
+        FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
+        Button importer = new Button(this);
+        Button exporter = new Button(this);
+        importer.setText("Importer fichier");
+        exporter.setText("Exporter fichier");
+        frame.addView(importer, 0);
+        frame.addView(exporter, 1);
     }
 
     /* Called whenever we call invalidateOptionsMenu() */
@@ -142,7 +182,7 @@ public class    AccueilActivity extends ActionBarActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
@@ -151,7 +191,7 @@ public class    AccueilActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
