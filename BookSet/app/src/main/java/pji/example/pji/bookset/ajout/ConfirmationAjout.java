@@ -2,7 +2,6 @@ package pji.example.pji.bookset.ajout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,13 +9,13 @@ import android.widget.TextView;
 
 import java.sql.SQLException;
 
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.bookset.R;
 import pji.example.pji.implementation.Collection.Livre;
 import pji.example.pji.implementation.base.DatabaseManager;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class ConfirmationAjout extends ActionBarActivity {
+public class ConfirmationAjout extends Methodes {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +47,6 @@ public class ConfirmationAjout extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void annuler(View view) {
-
-        Intent intent = new Intent(this, AccueilActivity.class);
-        startActivity(intent);
-
-
     }
 
     public void ajouter(View view) throws SQLException {

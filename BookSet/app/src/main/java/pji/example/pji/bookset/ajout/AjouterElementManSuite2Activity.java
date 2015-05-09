@@ -1,29 +1,20 @@
 package pji.example.pji.bookset.ajout;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import java.io.File;
-
 import pji.example.pji.bookset.R;
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.implementation.Collection.Livre;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class AjouterElementManSuite2Activity extends ActionBarActivity {
+public class AjouterElementManSuite2Activity extends Methodes {
 
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
-    private Uri fileUri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,29 +66,5 @@ public class AjouterElementManSuite2Activity extends ActionBarActivity {
 
 
     }
-    public void annuler(View view){
-        Intent intent = new Intent(this, AccueilActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void photo(View view){
-        File path = new File( Environment.getExternalStorageDirectory(), getPackageName() );
-        if(!path.exists()){
-            path.mkdir();
-        }
-        File tempFile = new File(Environment.getExternalStorageDirectory(), "temp.jpg");
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // start the image capture Intent
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
-        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-    }
-
-    public void galerry(View view){
-
-
-
-    }
-
 
 }

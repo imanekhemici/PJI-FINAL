@@ -23,6 +23,13 @@ public interface LivreDao extends Dao<Livre, Integer> {
 
     public int addData(Livre livre)throws SQLException;
 
-    public Livre findByTitle(String titre) throws SQLException;
+    public List findByTitle(String titre) throws SQLException;
 
-    }
+    public List findByIsbn(String titre);
+
+    public List findByAuteur(String titre);
+
+    public List findByGenre(String titre);
+
+    public List findByLangue(String titre);
+}

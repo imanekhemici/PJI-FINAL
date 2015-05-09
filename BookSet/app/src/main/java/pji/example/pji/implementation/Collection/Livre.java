@@ -13,6 +13,8 @@ import pji.example.pji.implementation.CollectionBdd.LivreDaoImpl;
 @DatabaseTable(tableName = "livre", daoClass = LivreDaoImpl.class)
 public class Livre implements Serializable{
 
+
+
     public Livre() {}
     public Livre(String titre, String auteur, String isbn, String genre) {
         this.titre = titre;

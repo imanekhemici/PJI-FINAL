@@ -1,18 +1,15 @@
 package pji.example.pji.bookset.ajout;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.bookset.R;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class Confirmation extends ActionBarActivity {
+public class Confirmation extends Methodes {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +42,6 @@ public class Confirmation extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void ajouterAnouveau(View view){
 
-        Intent intent = new Intent(this, AjouterElementActivity.class);
-        startActivity(intent);
-    }
 
-    public void accueil(View view){
-
-        Intent intent = new Intent(this, AccueilActivity.class);
-        startActivity(intent);
-    }
 }

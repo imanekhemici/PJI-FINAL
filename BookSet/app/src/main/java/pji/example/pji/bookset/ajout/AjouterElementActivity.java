@@ -2,20 +2,19 @@ package pji.example.pji.bookset.ajout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.bookset.R;
 import pji.example.pji.implementation.Collection.Livre;
+import pji.example.pji.implementation.extra.Methodes;
 
 /**
  * Created by imane khemici on 22/03/15.
  */
-public class AjouterElementActivity extends ActionBarActivity {
+public class AjouterElementActivity extends Methodes {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +60,5 @@ public class AjouterElementActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void annuler(View view){
-        Intent intent = new Intent(this, AccueilActivity.class);
-        startActivity(intent);
-    }
+
 }

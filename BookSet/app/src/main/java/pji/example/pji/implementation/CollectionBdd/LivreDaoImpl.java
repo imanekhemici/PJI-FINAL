@@ -1,6 +1,7 @@
 package pji.example.pji.implementation.CollectionBdd;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import pji.example.pji.implementation.Collection.Livre;
 /**
  * Created by imane khemici on 08/04/15.
  */
-public class    LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDao{
+public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDao{
 
 
  public LivreDaoImpl(ConnectionSource connectionSource)
@@ -20,7 +21,7 @@ public class    LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  Livr
 
      super(connectionSource, Livre.class);
     }
-
+    //Tout
     public List findAll() {
         List livres = new ArrayList<>();
         try {
@@ -30,6 +31,76 @@ public class    LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  Livr
         }
         return livres;
     }
+    //Par titre
+    public List findByTitle(String titre) throws SQLException {
+        PreparedQuery<Livre> requete = null;
+        List result = new ArrayList();
+        try {
+            requete = queryBuilder().where().gt("titre",titre).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+    //Isbn
+    public List findByIsbn(String isbn) {
+        PreparedQuery<Livre> requete = null;
+        List result = new ArrayList();
+
+        try {
+            requete = queryBuilder().where().gt("isbn",isbn).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+    //Auteur
+    public List findByAuteur(String auteur){
+        PreparedQuery<Livre> requete = null;
+        List result = new ArrayList();
+
+        try {
+            requete = queryBuilder().where().gt("auteur",auteur).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+
+    @Override
+    public List findByGenre(String genre) {
+        PreparedQuery<Livre> requete = null;
+        List result = new ArrayList();
+
+        try {
+            requete = queryBuilder().where().gt("genre",genre).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public List findByLangue(String langue) {
+        PreparedQuery<Livre> requete = null;
+        List result = new ArrayList();
+
+        try {
+            requete = queryBuilder().where().gt("langue",langue).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     public List findAllPanier(){
         List<Livre> resultat = new ArrayList();
@@ -71,34 +142,7 @@ public class    LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  Livr
                 ;
     }
 
-    public Livre findByTitle(String titre) throws SQLException {
-        Livre livre = new Livre();
-        List<Livre> all = queryForAll();
-        System.out.println(all.toString());
-        for(Livre livre1 : all){
-            if(livre1.getTitre().equals(titre)){
-                System.out.println(livre1.getTitre());
-                System.out.println(titre);
-                livre = livre1;
-            }
 
-        }
-        return livre;
-
-    }
-    public Livre findByIsbn(String isbn) throws SQLException {
-        Livre livre = new Livre();
-        List<Livre> all = queryForAll();
-
-        for(Livre livre1 : all){
-            if(livre1.getIsbn().equals(isbn)){
-                livre = livre1;
-            }
-
-        }
-        return livre;
-
-    }
     public boolean existe(String titre) throws SQLException {
         List<Livre> all = queryForAll();
         boolean existe = false;

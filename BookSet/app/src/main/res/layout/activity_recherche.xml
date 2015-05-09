@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Bibliothèque"
         android:id="@+id/biblio"
+        android:onClick="accueil"
         android:layout_gravity="left|top"
         android:layout_alignTop="@+id/ajout"
         android:layout_alignParentLeft="true"
@@ -47,21 +48,21 @@
     <EditText
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:hint="Titre"
-        android:id="@+id/titreRecherche"
+        android:hint="Recherche"
+        android:id="@+id/recherche_valeur"
         android:gravity="center"
+        android:layout_marginTop="54dp"
         android:layout_below="@+id/biblio"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="91dp" />
-    <EditText
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:hint="Isbn"
-        android:id="@+id/isbnRecherche"
-        android:gravity="center"
-        android:layout_marginBottom="113dp"
-        android:layout_above="@+id/recherche"
         android:layout_centerHorizontal="true" />
+    <Spinner
+        android:id="@+id/recherche_spiner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/recherche_valeur"
+        android:layout_alignStart="@+id/recherche_valeur"
+        android:layout_alignRight="@+id/recherche_valeur"
+        android:layout_alignEnd="@+id/recherche_valeur" />
 
     <Button
         android:layout_width="wrap_content"
