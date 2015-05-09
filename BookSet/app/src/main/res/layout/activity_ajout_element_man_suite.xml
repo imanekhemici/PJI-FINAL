@@ -87,7 +87,7 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:id="@+id/notetext"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/noteperso"
         android:layout_alignLeft="@+id/noteperso"
         android:layout_alignStart="@+id/noteperso" />
 
@@ -96,11 +96,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/note"
         android:progressBackgroundTint="@color/bright_foreground_material_light"
-        android:layout_below="@+id/notetext"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/notetext"
-        android:layout_alignStart="@+id/notetext"
-        android:layout_alignRight="@+id/noteperso"
-        android:layout_alignEnd="@+id/noteperso" />
+        android:layout_alignStart="@+id/notetext" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -138,5 +136,15 @@
         android:layout_below="@+id/lu"
         android:layout_alignLeft="@+id/lu"
         android:layout_alignStart="@+id/lu" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Panier"
+        android:textSize="20dp"
+        android:id="@+id/panier"
+        android:layout_below="@+id/mappartient"
+        android:layout_alignLeft="@+id/mappartient"
+        android:layout_alignStart="@+id/mappartient" />
 
 </RelativeLayout>

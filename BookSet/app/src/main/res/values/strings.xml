@@ -48,4 +48,13 @@
 
     </string-array>
 
+        <string-array name="recherche_array">
+            <item>Isbn</item>
+            <item>Titre</item>
+            <item>Auteur</item>
+            <item>Langue</item>
+            <item>Genre</item>
+        </string-array>
+        <string name="title_activity_ajout_element_genre">AjoutElementGenreActivity</string>
+
 </resources>

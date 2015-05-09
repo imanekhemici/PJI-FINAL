@@ -2,7 +2,6 @@ package pji.example.pji.bookset;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
@@ -14,9 +13,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import pji.example.pji.implementation.Collection.Livre;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class InformationActivity extends ActionBarActivity {
+public class InformationActivity extends Methodes {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +81,8 @@ public class InformationActivity extends ActionBarActivity {
                 liste.add(element);
 
                 element = new HashMap<String, String>();
-                element.put("nom", ":");
-                element.put("valeur", livre.getGenre());
+                element.put("nom", "Note:");
+                element.put("valeur", Float.toString(livre.getNote()));
 
                 liste.add(element);
 

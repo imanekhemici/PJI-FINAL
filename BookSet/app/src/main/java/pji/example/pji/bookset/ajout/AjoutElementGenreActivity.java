@@ -2,31 +2,26 @@ package pji.example.pji.bookset.ajout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
 import pji.example.pji.bookset.R;
-import pji.example.pji.implementation.Collection.Livre;
-import pji.example.pji.implementation.extra.Methodes;
 
-
-public class AjouterElementManSuite2Activity extends Methodes {
-
-
+public class AjoutElementGenreActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajouter_element_man_suite2);
+        setContentView(R.layout.activity_ajout_element_genre);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ajouter_element_man_suite2, menu);
+        getMenuInflater().inflate(R.menu.menu_ajout_element_genre, menu);
         return true;
     }
 
@@ -44,27 +39,10 @@ public class AjouterElementManSuite2Activity extends Methodes {
 
         return super.onOptionsItemSelected(item);
     }
+    public void suite(View view){
 
-    public void suiteMan(View view){
-
-        Livre livre = (Livre)getIntent().getSerializableExtra("livre1");
-
-        EditText emprunte = (EditText)findViewById(R.id.emprunte);
-        String emprunte_s = emprunte.getText().toString();
-
-        livre.setEmprunte(emprunte_s);
-
-        EditText prete = (EditText)findViewById(R.id.prete);
-        String prete_s = prete.getText().toString();
-
-        livre.setPrete(prete_s);
-
-        Intent intent = new Intent(this, ConfirmationAjout.class);
-        intent.putExtra("livre2",livre);
-
+        Intent intent = new Intent(this,AjoutElementSuiteActivity.class);
         startActivity(intent);
 
-
     }
-
 }

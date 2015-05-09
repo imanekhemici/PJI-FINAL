@@ -2,7 +2,6 @@ package pji.example.pji.bookset.ajout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +10,11 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 
 import pji.example.pji.bookset.R;
-import pji.example.pji.bookset.accueil.AccueilActivity;
 import pji.example.pji.implementation.Collection.Livre;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class AjoutElementSuiteActivity extends ActionBarActivity {
+public class AjoutElementSuiteActivity extends Methodes {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class AjoutElementSuiteActivity extends ActionBarActivity {
 
             EditText publie = (EditText) findViewById(R.id.publie);
             String publie_s = publie.getText().toString();
-               livre.setPublie_le(publie_s);
+            livre.setPublie_le(publie_s);
 
             RatingBar note_tex = (RatingBar) findViewById(R.id.note);
             float note = note_tex.getRating();
@@ -79,15 +78,15 @@ public class AjoutElementSuiteActivity extends ActionBarActivity {
 
             livre.setMappartient(mappartient);
 
+            CheckBox panier_c = (CheckBox) findViewById(R.id.panier);
+            boolean panier = panier_c.isChecked();
+            livre.setPanier(panier);
+
         Intent intent = new Intent(this, AjouterElementManSuite2Activity.class);
 
         intent.putExtra("livre1", livre);
 
         startActivity(intent);
     }
-    public void annuler(View view){
-        Intent intent = new Intent(this, AccueilActivity.class);
-        startActivity(intent);
 
-    }
 }

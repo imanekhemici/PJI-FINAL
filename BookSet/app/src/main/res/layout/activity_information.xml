@@ -86,8 +86,11 @@
         android:layout_below="@+id/biblio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/ajout"
-        android:layout_toStartOf="@+id/ajout" />
+        android:layout_above="@+id/modifier"
+        android:layout_toLeftOf="@+id/supprimer"
+        android:layout_toStartOf="@+id/supprimer" />
+
+
 
 
 </RelativeLayout>

@@ -1,23 +1,16 @@
 package pji.example.pji.bookset.accueil;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,22 +20,14 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ListView;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import pji.example.pji.bookset.InformationActivity;
 import pji.example.pji.bookset.R;
-import pji.example.pji.bookset.ajout.AjouterActivity;
-import pji.example.pji.bookset.recherche.RechercheChoixActivity;
-import pji.example.pji.implementation.Collection.Livre;
-import pji.example.pji.implementation.CollectionBdd.LivreDaoImpl;
 import pji.example.pji.implementation.base.DatabaseManager;
+import pji.example.pji.implementation.extra.Methodes;
 
 
-public class    AccueilActivity extends ActionBarActivity {
+public class  AccueilActivity extends Methodes {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -113,14 +98,6 @@ public class    AccueilActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             selectItem(0);
         }
-       //    afficherLivre();
-    }
-
-    /** Called when the user clicks the Ajouter button */
-    public void ajouterElement(View view) {
-        Intent intent = new Intent(this, AjouterActivity.class);
-        startActivity(intent);
-
     }
 
     public void restoreActionBar() {
@@ -227,40 +204,6 @@ public class    AccueilActivity extends ActionBarActivity {
         }
     }
 
-
-    /*public void afficherLivre(){
-
-        //Recuperation de la liste des views
-        ListView vue = (ListView) findViewById(R.id.listLivre);
-
-        LivreDaoImpl livreDao = DatabaseManager.getInstance().getHelper().getLivreDao();
-        if(livreDao != null) {
-
-            List<Livre> livres = livreDao.findAll();
-            List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
-            HashMap<String, String> element;
-            //Pour chaque personne dans notre répertoire…
-            for (Livre livre : livres) {
-
-                element = new HashMap<String, String>();
-
-                element.put("titre", livre.getTitre());
-                element.put("auteur", livre.getAuteur());
-
-                liste.add(element);
-
-            }
-
-            ListAdapter adapter = new SimpleAdapter(this, liste, R.layout.afficher_livre,
-                    new String[]{"titre","auteur"},
-                    new int[]{R.id.titreaff,R.id.auteuraff});
-
-            //Pour finir, on donne à la ListView le SimpleAdapter
-
-            vue.setAdapter(adapter);
-        }
-    }*/
-
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
@@ -282,19 +225,14 @@ public class    AccueilActivity extends ActionBarActivity {
     }
 
 
-    public void recherche(View view){
-                Intent intent = new Intent(this,RechercheChoixActivity.class);
-                startActivity(intent);
-    }
-
-
+/**
     public void information(View view) throws SQLException {
             TextView livreTitre = (TextView) findViewById(R.id.titreaff);
             Livre livre = DatabaseManager.getInstance().getHelper().getLivreDao().findByTitle(livreTitre.getText().toString());
             Intent intent = new Intent(this,InformationActivity.class);
             intent.putExtra("livreDetails",livre);
             startActivity(intent);
-    }
+    }*/
 
     /* The click listner for ListView in the navigation drawer */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {

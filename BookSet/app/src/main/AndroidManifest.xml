@@ -90,6 +90,10 @@
             android:name=".InformationLivre"
             android:label="@string/title_activity_information_livre" >
         </activity>
+        <activity
+            android:name=".ajout.AjoutElementGenreActivity"
+            android:label="@string/title_activity_ajout_element_genre" >
+        </activity>
     </application>
 
 </manifest>
