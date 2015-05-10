@@ -19,6 +19,9 @@
     <string name="livre">Livres</string>
     <string name="ajout">Ajouter</string>
     <string name="title_activity_activity_ajouter_element">activity_ajouter_element</string>
+    <string name="importer">Importer fichier</string>
+    <string name="exporter">Exporter fichier</string>
+    <string name="afficher_par">Afficher Par </string>
 
     <string name="title_activity_ajouter_element">Ajout d\'élément(s)</string>
     <string name="title_activity_ajouter_element_activity">Complèter</string>
@@ -45,6 +48,20 @@
         <item>Accueil</item>
         <item>Favoris</item>
         <item>Panier</item>
+
+    </string-array>
+
+    <string-array name="configurer_array">
+        <item>Ordre Alphabétique</item>
+        <item>Genre</item>
+        <item>Non lu(s)</item>
+
+    </string-array>
+
+    <string-array name="options_array">
+        <item>Settings</item>
+        <item>Synchoniser avec un autre appareil</item>
+        <item>Configurer l\'affichage</item>
 
     </string-array>
 

@@ -1,5 +1,6 @@
 package pji.example.pji.bookset.accueil;
 
+import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -32,6 +34,8 @@ public class  AccueilActivity extends Methodes {
     private CharSequence mDrawerTitle;
     private String[] mSettingsTitles;
 
+    private String[] mOptionsTitles;
+
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -49,6 +53,7 @@ public class  AccueilActivity extends Methodes {
         mSettingsTitles = getResources().getStringArray(R.array.settings_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mOptionsTitles = getResources().getStringArray(R.array.options_array);
 
         ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
 
@@ -94,6 +99,15 @@ public class  AccueilActivity extends Methodes {
         if (savedInstanceState == null) {
             selectItem(0);
         }
+
+      /*  Spinner spinner = (Spinner) findViewById(R.id.configurer_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
+                R.array.configurer_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter1);*/
     }
 
     public void restoreActionBar() {
@@ -112,20 +126,36 @@ public class  AccueilActivity extends Methodes {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Fragment fragment1 = null;
         // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.synchroniser:
-                openSynchroniser();
-                return true;
-            case R.id.configurer:
-                openConfigurer();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
+        else {
+            switch (item.getItemId()) {
+                case R.id.synchroniser:
+                    //openSynchroniser();
+                    fragment1 = new SynchroniserFragment();
+                    return true;
+                case R.id.configurer:
+                    //openConfigurer();
+                    fragment1 = new ConfigurerFragment();
+                    return true;
+            }
+        }
+
+        if (fragment1 != null) {
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment1).commit();
+        } else {
+            Log.e("MainActivity", "Error in creating fragment");
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void openConfigurer() {
+
 
         FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
         TextView text = new TextView(this);
@@ -142,8 +172,8 @@ public class  AccueilActivity extends Methodes {
         Button exporter = new Button(this);
         importer.setText("Importer fichier");
         exporter.setText("Exporter fichier");
-        frame.addView(importer, 0);
-        frame.addView(exporter, 1);
+        frame.addView(importer);
+        frame.addView(exporter);
     }
 
     /* Called whenever we call invalidateOptionsMenu() */
