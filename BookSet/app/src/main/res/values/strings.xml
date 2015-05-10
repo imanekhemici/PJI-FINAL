@@ -56,5 +56,39 @@
             <item>Genre</item>
         </string-array>
         <string name="title_activity_ajout_element_genre">AjoutElementGenreActivity</string>
+    <string-array name="genre_array">
+        <item>Actu, Politique et Société</item>
+        <item>Adolescents</item>
+        <item>Art, Musique et Cinéma</item>
+        <item>Bandes dessinées</item>
+        <item>Beaux livres</item>
+        <item>Cuisine et Vins</item>
+        <item>Dictionnaires, langues et encyclopédies</item>
+        <item>Droit</item>
+        <item>Entreprise et Bourse</item>
+        <item>Érotisme</item>
+        <item>Esotérisme et Paranormal</item>
+        <item>Etudes supérieures</item>
+        <item>Famille, Santé et Bien-être</item>
+        <item>Fantasy et Terreur</item>
+        <item>Histoire</item>
+        <item>Humour</item>
+        <item>Informatique et Internet</item>
+        <item>Littérature</item>
+        <item>Littérature sentimentale</item>
+        <item>Livres pour enfants</item>
+        <item>Loisirs créatifs, décoration et bricolage</item>
+        <item>Manga</item>
+        <item>Nature et animaux</item>
+        <item>Policier et Suspense</item>
+        <item>Religions et Spiritualités</item>
+        <item>Science-Fiction</item>
+        <item>Sciences humaines</item>
+        <item>Sciences, Techniques et Médecine</item>
+        <item>Scolaire et Parascolaire</item>
+        <item>Sports et passions</item>
+        <item>Tourisme et Voyages</item>
 
+    </string-array>
+        <string name="title_activity_modification1">Modification1Activity</string>
 </resources>

@@ -26,7 +26,7 @@ public class Livre implements Serializable{
     /** Getter/Setter
      *
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -82,7 +82,7 @@ public class Livre implements Serializable{
         return prete;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -159,7 +159,7 @@ public class Livre implements Serializable{
      */
 
     @DatabaseField(generatedId = true)
-    private int id;
+    private Integer id;
     @DatabaseField(columnName = "titre", canBeNull = false)
     private String titre;
     @DatabaseField(columnName = "auteur", canBeNull = false)
