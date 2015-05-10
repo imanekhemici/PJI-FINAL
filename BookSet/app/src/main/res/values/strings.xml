@@ -58,6 +58,13 @@
 
     </string-array>
 
+    <string-array name="options_array">
+        <item>Settings</item>
+        <item>Synchoniser avec un autre appareil</item>
+        <item>Configurer l\'affichage</item>
+
+    </string-array>
+
         <string-array name="recherche_array">
             <item>Isbn</item>
             <item>Titre</item>

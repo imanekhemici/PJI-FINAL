@@ -1,5 +1,6 @@
 package pji.example.pji.bookset.accueil;
 
+import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -33,6 +34,8 @@ public class  AccueilActivity extends Methodes {
     private CharSequence mDrawerTitle;
     private String[] mSettingsTitles;
 
+    private String[] mOptionsTitles;
+
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -50,6 +53,7 @@ public class  AccueilActivity extends Methodes {
         mSettingsTitles = getResources().getStringArray(R.array.settings_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mOptionsTitles = getResources().getStringArray(R.array.options_array);
 
         ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
 
@@ -122,23 +126,36 @@ public class  AccueilActivity extends Methodes {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        android.app.Fragment fragment = null;
+        Fragment fragment1 = null;
         // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.synchroniser:
-               // openSynchroniser();
-                fragment = new SynchroniserFragment();
-                return true;
-            case R.id.configurer:
-                //openConfigurer();
-                fragment = new ConfigurerFragment();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
+        else {
+            switch (item.getItemId()) {
+                case R.id.synchroniser:
+                    //openSynchroniser();
+                    fragment1 = new SynchroniserFragment();
+                    return true;
+                case R.id.configurer:
+                    //openConfigurer();
+                    fragment1 = new ConfigurerFragment();
+                    return true;
+            }
+        }
+
+        if (fragment1 != null) {
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment1).commit();
+        } else {
+            Log.e("MainActivity", "Error in creating fragment");
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void openConfigurer() {
+
 
         FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
         TextView text = new TextView(this);
