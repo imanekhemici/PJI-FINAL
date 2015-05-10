@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -98,6 +99,15 @@ public class  AccueilActivity extends Methodes {
         if (savedInstanceState == null) {
             selectItem(0);
         }
+
+      /*  Spinner spinner = (Spinner) findViewById(R.id.configurer_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
+                R.array.configurer_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter1);*/
     }
 
     public void restoreActionBar() {
@@ -116,13 +126,16 @@ public class  AccueilActivity extends Methodes {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        android.app.Fragment fragment = null;
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.synchroniser:
-                openSynchroniser();
+               // openSynchroniser();
+                fragment = new SynchroniserFragment();
                 return true;
             case R.id.configurer:
-                openConfigurer();
+                //openConfigurer();
+                fragment = new ConfigurerFragment();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -146,8 +159,8 @@ public class  AccueilActivity extends Methodes {
         Button exporter = new Button(this);
         importer.setText("Importer fichier");
         exporter.setText("Exporter fichier");
-        frame.addView(importer, 0);
-        frame.addView(exporter, 1);
+        frame.addView(importer);
+        frame.addView(exporter);
     }
 
     /* Called whenever we call invalidateOptionsMenu() */
