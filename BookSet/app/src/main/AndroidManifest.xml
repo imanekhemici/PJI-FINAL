@@ -98,6 +98,14 @@
             android:name=".modification.Modification1Activity"
             android:label="@string/title_activity_modification1" >
         </activity>
+        <activity
+            android:name=".modification.Modification2Activity"
+            android:label="@string/title_activity_modification2" >
+        </activity>
+        <activity
+            android:name=".modification.Modification3Activity"
+            android:label="@string/title_activity_modification3" >
+        </activity>
     </application>
 
 </manifest>

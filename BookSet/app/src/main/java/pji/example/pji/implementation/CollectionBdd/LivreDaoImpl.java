@@ -245,4 +245,9 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
 
         return this.deleteById(livre.getId());
     }
+
+    public void updateLivre(Livre livre) throws SQLException {
+
+       this.update(livre);
+    }
 }

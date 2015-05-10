@@ -91,4 +91,6 @@
 
     </string-array>
         <string name="title_activity_modification1">Modification1Activity</string>
+        <string name="title_activity_modification2">Modification2Activity</string>
+        <string name="title_activity_modification3">Modification3Activity</string>
 </resources>

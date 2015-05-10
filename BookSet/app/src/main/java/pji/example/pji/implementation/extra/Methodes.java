@@ -65,12 +65,12 @@ public class Methodes  extends ActionBarActivity {
         TextView livreTitre = (TextView) view.findViewById(R.id.titreaff);
         Livre livre = DatabaseManager.getInstance().getHelper().getLivreDao().findByTitre(livreTitre.getText().toString()) ;
         Intent intent = new Intent(this,InformationActivity.class);
-        intent.putExtra("livreDetails",livre);
+        intent.putExtra("livre1",livre);
         startActivity(intent);
     }
 
     public void supprimer(View view){
-        final Livre livre = (Livre) getIntent().getSerializableExtra("livreDetails");
+        final Livre livre = (Livre) getIntent().getSerializableExtra("livre1");
         final Intent intent = new Intent(this, AccueilActivity.class);
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         AlertDialog.Builder builder1 = builder.setMessage("Suppression")
@@ -107,9 +107,9 @@ public class Methodes  extends ActionBarActivity {
 
 
     public void modifier(View view){
-        final Livre livre = (Livre) getIntent().getSerializableExtra("livreDetails");
+        final Livre livre = (Livre) getIntent().getSerializableExtra("livre1");
         Intent intent = new Intent(this, Modification1Activity.class);
-        intent.putExtra("livreDe",livre);
+        intent.putExtra("livre1",livre);
         startActivity(intent);
 
     }

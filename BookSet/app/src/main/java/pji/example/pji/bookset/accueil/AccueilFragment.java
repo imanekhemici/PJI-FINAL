@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +22,6 @@ import pji.example.pji.implementation.base.DatabaseManager;
  * Created by raissa on 18/04/15.
  */
 public class AccueilFragment extends Fragment {
-    public AccueilFragment() {
-
-    }
-
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle

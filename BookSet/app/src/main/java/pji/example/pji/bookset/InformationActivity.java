@@ -23,7 +23,7 @@ public class InformationActivity extends Methodes {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
         Intent intent = getIntent();
-        Livre livre = (Livre)intent.getSerializableExtra("livreDetails");
+        Livre livre = (Livre)intent.getSerializableExtra("livre1");
 
 
         ListView vue = (ListView) findViewById(R.id.listInfor);
@@ -83,6 +83,12 @@ public class InformationActivity extends Methodes {
                 element = new HashMap<String, String>();
                 element.put("nom", "Note:");
                 element.put("valeur", Float.toString(livre.getNote()));
+
+                liste.add(element);
+
+                element = new HashMap<String, String>();
+                element.put("nom", "Note Personelle:");
+                element.put("valeur", Float.toString(livre.getNotePerso()));
 
                 liste.add(element);
 
