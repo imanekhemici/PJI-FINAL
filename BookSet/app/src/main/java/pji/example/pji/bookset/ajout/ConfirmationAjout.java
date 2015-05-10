@@ -50,7 +50,7 @@ public class ConfirmationAjout extends Methodes {
     }
 
     public void ajouter(View view) throws SQLException {
-        Livre livre =(Livre) getIntent().getSerializableExtra("livre2");
+        Livre livre =(Livre) getIntent().getSerializableExtra("livre1");
         Intent intent = new Intent(this, Confirmation.class);
 
         boolean existe = DatabaseManager.getInstance().getHelper().getLivreDao().existe(livre.getTitre());
@@ -71,7 +71,7 @@ public class ConfirmationAjout extends Methodes {
 
     public String afficher(){
 
-        Livre livre =(Livre) getIntent().getSerializableExtra("livre2");
+        Livre livre =(Livre) getIntent().getSerializableExtra("livre1");
         String details = "";
 
         details = "Titre: "+livre.getTitre()+"\n"

@@ -94,6 +94,10 @@
             android:name=".ajout.AjoutElementGenreActivity"
             android:label="@string/title_activity_ajout_element_genre" >
         </activity>
+        <activity
+            android:name=".modification.Modification1Activity"
+            android:label="@string/title_activity_modification1" >
+        </activity>
     </application>
 
 </manifest>

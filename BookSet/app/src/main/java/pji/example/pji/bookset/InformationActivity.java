@@ -136,4 +136,5 @@ public class InformationActivity extends Methodes {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

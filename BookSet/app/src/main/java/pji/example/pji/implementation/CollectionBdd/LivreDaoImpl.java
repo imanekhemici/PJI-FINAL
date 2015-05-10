@@ -59,6 +59,21 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         return result;
 */
     }
+    public Livre findByTitre(String titre){
+        List<Livre> livres = new ArrayList<>();
+        Livre resultat = new Livre();
+        try {
+            livres = queryForAll();
+            for (Livre livre : livres){
+                if(livre.getTitre().equals(titre)){
+                    resultat=livre;
+                }
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return resultat;
+    }
     //Isbn
     public List findByIsbn(String isbn) {
         List<Livre> livres = new ArrayList<>();
@@ -226,5 +241,8 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
 
         return this.create(livre);
     }
+    public int delete(Livre livre) throws SQLException {
 
+        return this.deleteById(livre.getId());
+    }
 }

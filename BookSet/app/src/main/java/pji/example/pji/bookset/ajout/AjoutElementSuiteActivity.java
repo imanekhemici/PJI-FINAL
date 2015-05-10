@@ -46,7 +46,7 @@ public class AjoutElementSuiteActivity extends Methodes {
     }
 
     public void suite(View view){
-        Livre livre = (Livre) getIntent().getSerializableExtra("livre");
+        Livre livre = (Livre) getIntent().getSerializableExtra("livre2");
 
 
             EditText publie = (EditText) findViewById(R.id.publie);
@@ -82,7 +82,7 @@ public class AjoutElementSuiteActivity extends Methodes {
             boolean panier = panier_c.isChecked();
             livre.setPanier(panier);
 
-        Intent intent = new Intent(this, AjouterElementManSuite2Activity.class);
+        Intent intent = new Intent(this, ConfirmationAjout.class);
 
         intent.putExtra("livre1", livre);
 
