@@ -58,6 +58,15 @@
 
     </string-array>
 
+    <string-array name="synchroniser_array">
+        <item>Importer fichier</item>
+        <item>Exporter fichier</item>
+
+    </string-array>
+
+    <string name="pick_option_synchroniser">Vous souhaitez: </string>
+    <string name="pick_option_configurer">Afficher par : </string>
+
     <string-array name="options_array">
         <item>Settings</item>
         <item>Synchoniser avec un autre appareil</item>

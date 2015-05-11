@@ -135,11 +135,17 @@ public class  AccueilActivity extends Methodes {
             switch (item.getItemId()) {
                 case R.id.synchroniser:
                     //openSynchroniser();
-                    fragment1 = new SynchroniserFragment();
+                    //fragment1 = new SynchroniserFragment();
+                    OptionsSynchroniserDialogFragment op = new OptionsSynchroniserDialogFragment();
+                    //op.showDialog();
+                    op.show(getFragmentManager(), "dialog");
                     return true;
+
                 case R.id.configurer:
                     //openConfigurer();
-                    fragment1 = new ConfigurerFragment();
+                   // fragment1 = new ConfigurerFragment();
+                    OptionsConfigurerDialogFragment od = new OptionsConfigurerDialogFragment();
+                    od.show(getFragmentManager(), "dialog");
                     return true;
             }
         }
