@@ -27,7 +27,7 @@ public class AjoutElementGenreActivity extends Methodes {
     private boolean taken;
     private boolean imgCapFlag;
     private ImageView image;
-
+    private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,10 +89,10 @@ public class AjoutElementGenreActivity extends Methodes {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 2 && resultCode == RESULT_OK
+        if (requestCode == 1 && resultCode == RESULT_OK
                 && null != data) {
 
-            Uri selectedImage = data.getData();
+            Uri selectedImage = (Uri) getIntent().getSerializableExtra(MediaStore.EXTRA_OUTPUT);
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContentResolver().query(selectedImage,
@@ -107,12 +107,36 @@ public class AjoutElementGenreActivity extends Methodes {
             image.setImageBitmap(bitmap);
 
             if (bitmap != null) {
+                path = picturePath;
                 ImageView rotate = (ImageView) findViewById(R.id.rotate);
-
+                rotate.setImageBitmap(bitmap);
             }
 
         } else {
+            if (requestCode == 2 && resultCode == RESULT_OK
+                    && null != data) {
 
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                Cursor cursor = getContentResolver().query(selectedImage,
+                        filePathColumn, null, null, null);
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                bitmap = BitmapFactory.decodeFile(picturePath);
+                image.setImageBitmap(bitmap);
+
+                if (bitmap != null) {
+                    path = picturePath;
+                    ImageView rotate = (ImageView) findViewById(R.id.rotate);
+                    rotate.setImageBitmap(bitmap);
+                }
+
+            }else{
             Log.i("SonaSys", "resultCode: " + resultCode);
             switch (resultCode) {
                 case 0:
@@ -126,6 +150,7 @@ public class AjoutElementGenreActivity extends Methodes {
 
         }
 
+    }
     }
 
     protected void onPhotoTaken() {
@@ -157,7 +182,7 @@ public class AjoutElementGenreActivity extends Methodes {
         String prete_s = prete.getText().toString();
 
         livre.setPrete(prete_s);
-
+        livre.setImage(path);
 
         Intent intent = new Intent(this,AjoutElementSuiteActivity.class);
         intent.putExtra("livre2",livre);

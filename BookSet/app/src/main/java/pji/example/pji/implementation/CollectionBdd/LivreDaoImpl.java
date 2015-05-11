@@ -1,6 +1,7 @@
 package pji.example.pji.implementation.CollectionBdd;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
@@ -32,7 +33,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
     }
     //Par titre
     public List findByTitle(String titre) throws SQLException {
-        List<Livre> livres = new ArrayList<>();
+       /** List<Livre> livres = new ArrayList<>();
         List<Livre> resultat = new ArrayList();
         try {
             livres = queryForAll();
@@ -44,20 +45,20 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         }catch(SQLException e) {
             e.printStackTrace();
         }
-        return resultat;
+        return resultat;*/
 
 
-/**
+
         PreparedQuery<Livre> requete = null;
         List result = new ArrayList();
         try {
-            requete = queryBuilder().where().gt("titre",titre).prepare();
+            requete = queryBuilder().where().eq("titre",titre).prepare();
             result = query(requete);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
-*/
+
     }
     public Livre findByTitre(String titre){
         List<Livre> livres = new ArrayList<>();

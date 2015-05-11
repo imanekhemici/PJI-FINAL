@@ -1,6 +1,7 @@
 package pji.example.pji.bookset.accueil;
 
 import android.app.Fragment;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,23 +36,33 @@ public class AccueilFragment extends Fragment {
             if(livreDao != null)
             {
                 List<Livre> livres = livreDao.findAll();
-                List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
-                HashMap<String, String> element;
+                List<HashMap<String, Object>> liste = new ArrayList<HashMap<String, Object>>();
+                HashMap<String, Object> element;
 
                 //Pour chaque personne dans notre répertoire…
                 for (Livre livre : livres) {
 
-                    element = new HashMap<String, String>();
+                    element = new HashMap<String,Object>();
 
                     element.put("titre", livre.getTitre());
-                    element.put("auteur", livre.getAuteur());
+                    element.put("auteur", livre.getImage());
+
+                    if(livre.getImage() != null) {
+                        element.put("image",BitmapFactory.decodeFile(livre.getImage()));
+
+                        /*Bitmap bitmap = BitmapFactory.decodeFile(livre.getImage());
+                        ImageView image = (ImageView) rootView.findViewById(R.id.couverture);
+                        if (image != null) {
+                            image.setImageBitmap(bitmap);
+                        }*/
+                    }
                     liste.add(element);
 
                 }
 
                 ListAdapter adapter = new SimpleAdapter(this.getActivity(), liste, R.layout.afficher_livre,
-                        new String[] {"titre", "auteur"},
-                        new int[] {R.id.titreaff, R.id.auteuraff });
+                        new String[] {"titre", "auteur","image"},
+                        new int[] {R.id.titreaff, R.id.auteuraff, R.id.couverture });
 
                 //Pour finir, on donne à la ListView le SimpleAdapter
 
