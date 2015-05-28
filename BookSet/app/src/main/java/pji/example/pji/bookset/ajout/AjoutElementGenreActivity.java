@@ -16,8 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import java.io.File;
-
 import pji.example.pji.bookset.R;
 import pji.example.pji.implementation.Collection.Livre;
 import pji.example.pji.implementation.extra.Methodes;
@@ -69,19 +67,14 @@ public class AjoutElementGenreActivity extends Methodes {
     }
     public void FromCamera(View view) {
 
-        Log.i("camera", "startCameraActivity()");
-        File file = new File(getPackageName());
-        Uri outputFileUri = Uri.fromFile(file);
-        Intent intent = new Intent(
-                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-        startActivityForResult(intent, 1);
-
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, 1);
+        }
     }
 
     public void FromCard(View view) {
-        Intent i = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, 2);
     }
 
@@ -92,7 +85,25 @@ public class AjoutElementGenreActivity extends Methodes {
         if (requestCode == 1 && resultCode == RESULT_OK
                 && null != data) {
 
-            Uri selectedImage = (Uri) getIntent().getSerializableExtra(MediaStore.EXTRA_OUTPUT);
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+            path = picturePath;
+
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ImageView rotate = (ImageView) findViewById(R.id.rotate);
+            rotate.setImageBitmap(imageBitmap);
+            /**Toast.makeText(this, "Image saved to:\n" +
+                    data.getData(), Toast.LENGTH_LONG).show();*/
+          /**Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContentResolver().query(selectedImage,
@@ -110,8 +121,7 @@ public class AjoutElementGenreActivity extends Methodes {
                 path = picturePath;
                 ImageView rotate = (ImageView) findViewById(R.id.rotate);
                 rotate.setImageBitmap(bitmap);
-            }
-
+            }*/
         } else {
             if (requestCode == 2 && resultCode == RESULT_OK
                     && null != data) {
@@ -191,4 +201,5 @@ public class AjoutElementGenreActivity extends Methodes {
 
 
     }
+
 }

@@ -122,10 +122,13 @@ public class InformationActivity extends Methodes {
 
         vue.setAdapter(adapter);
         if (livre.getImage() != null) {
-            Bitmap bitmap = BitmapFactory.decodeFile(livre.getImage());
+            final BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 8;
+
+            Bitmap bm = BitmapFactory.decodeFile(livre.getImage(),options);
             ImageView image = (ImageView) findViewById(R.id.couvertureModif);
             if (image != null) {
-                image.setImageBitmap(bitmap);
+                image.setImageBitmap(bm);
             }
         }
     }
