@@ -212,6 +212,32 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         return resultat;
     }
 
+    public List findAllNonLus(){
+        List<Livre> resultat = new ArrayList();
+        List<Livre> all = new ArrayList();
+        all =  findAll();
+        for(Livre livre1 : all){
+            if(livre1.isLu() == false){
+                resultat.add(livre1);
+            }
+
+        }
+        return resultat;
+    }
+
+    public List findAllLus(){
+        List<Livre> resultat = new ArrayList();
+        List<Livre> all = new ArrayList();
+        all =  findAll();
+        for(Livre livre1 : all){
+            if(livre1.isLu() == true){
+                resultat.add(livre1);
+            }
+
+        }
+        return resultat;
+    }
+
 
     public Livre findById(int id) {
         Livre livres = new Livre();

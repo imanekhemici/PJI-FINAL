@@ -24,7 +24,7 @@ import pji.example.pji.implementation.base.DatabaseManager;
 /**
  * Created by imane khemici on 09/05/15.
  */
-public class Methodes  extends ActionBarActivity {
+public class    Methodes  extends ActionBarActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;

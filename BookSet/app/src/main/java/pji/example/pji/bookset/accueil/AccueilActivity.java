@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -21,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import pji.example.pji.bookset.R;
+        ;
 import pji.example.pji.implementation.base.DatabaseManager;
 import pji.example.pji.implementation.extra.Methodes;
 
@@ -55,11 +55,14 @@ public class  AccueilActivity extends Methodes {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mOptionsTitles = getResources().getStringArray(R.array.options_array);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_drawer, "Accueil");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_drawer, "Favoris");
         drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_drawer, "Panier");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_drawer, "Non lu(s)");
+        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_drawer, "Lu(s)");
+
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -134,16 +137,12 @@ public class  AccueilActivity extends Methodes {
         else {
             switch (item.getItemId()) {
                 case R.id.synchroniser:
-                    //openSynchroniser();
-                    //fragment1 = new SynchroniserFragment();
                     OptionsSynchroniserDialogFragment op = new OptionsSynchroniserDialogFragment();
                     //op.showDialog();
                     op.show(getFragmentManager(), "dialog");
                     return true;
 
                 case R.id.configurer:
-                    //openConfigurer();
-                   // fragment1 = new ConfigurerFragment();
                     OptionsConfigurerDialogFragment od = new OptionsConfigurerDialogFragment();
                     od.show(getFragmentManager(), "dialog");
                     return true;
@@ -160,34 +159,12 @@ public class  AccueilActivity extends Methodes {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openConfigurer() {
-
-
-        FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
-        TextView text = new TextView(this);
-        text.setText("Afficher par : ");
-        Spinner choix = new Spinner(this);
-        frame.addView(text, 0);
-        frame.addView(choix, 1);
-    }
-
-    private void openSynchroniser() {
-
-        FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
-        Button importer = new Button(this);
-        Button exporter = new Button(this);
-        importer.setText("Importer fichier");
-        exporter.setText("Exporter fichier");
-        frame.addView(importer);
-        frame.addView(exporter);
-    }
-
     /* Called whenever we call invalidateOptionsMenu() */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        menu.findItem(R.id.synchroniser).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -216,6 +193,11 @@ public class  AccueilActivity extends Methodes {
                 break;
             case 2:
                 fragment = new PanierFragment();
+                break;
+            case 3:
+                fragment = new NonLusFragment();
+                break;
+            case 4: fragment = new LusFragment();
                 break;
 
             default:
