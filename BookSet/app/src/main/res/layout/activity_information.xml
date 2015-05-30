@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:text="Bibliothèque"
         android:id="@+id/biblio"
-        android:clickable="false"
         android:onClick="accueil"
         android:layout_gravity="left|top"
         android:layout_alignTop="@+id/ajout"
@@ -85,12 +84,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/listInfor"
         android:layout_below="@+id/biblio"
-        android:layout_toLeftOf="@+id/ajout"
         android:layout_above="@+id/modifier"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/ajout"
+        android:layout_alignEnd="@+id/ajout" />
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/couvertureModif"
+        android:src="@drawable/url"
+        android:layout_toRightOf="@+id/modifier"
+        android:layout_below="@+id/biblio"
+        android:layout_alignRight="@+id/ajout"
+        android:layout_alignEnd="@+id/ajout" />
 
 
 </RelativeLayout>

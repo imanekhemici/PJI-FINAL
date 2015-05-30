@@ -1,4 +1,4 @@
-package pji.example.pji.bookset.ajout;
+package pji.example.pji.bookset.modification;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,24 +16,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.io.File;
+import java.util.List;
+
 import pji.example.pji.bookset.R;
 import pji.example.pji.implementation.Collection.Livre;
 import pji.example.pji.implementation.extra.Methodes;
 
-public class AjoutElementGenreActivity extends Methodes {
-    private Bitmap  bitmap;
+public class Modification2Activity extends Methodes {
+    private Bitmap bitmap;
     private boolean taken;
     private boolean imgCapFlag;
     private ImageView image;
-    private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajout_element_genre);
-
+        setContentView(R.layout.activity_modification2);
 
         image = new ImageView(getApplicationContext());
-        Spinner spinner = (Spinner) findViewById(R.id.Genrespinner);
+        Spinner spinner = (Spinner) findViewById(R.id.GenrespinnerModif);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.genre_array, android.R.layout.simple_spinner_item);
@@ -41,13 +42,25 @@ public class AjoutElementGenreActivity extends Methodes {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        Spinner spinner1 = (Spinner) findViewById(R.id.GenrespinnerModif);
+        final Livre livre = (Livre) getIntent().getSerializableExtra("livreDe");
+        List list = spinner1.getTouchables();
+        spinner1.setSelection(list.indexOf(livre.getGenre()));
+
+        EditText emprunte = (EditText) findViewById(R.id.emprunteModif);
+        emprunte.setText(livre.getEmprunte());
+
+        EditText prete = (EditText) findViewById(R.id.preteModif);
+        prete.setText(livre.getPrete());
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ajout_element_genre, menu);
+        getMenuInflater().inflate(R.menu.menu_modification2, menu);
         return true;
     }
 
@@ -67,14 +80,19 @@ public class AjoutElementGenreActivity extends Methodes {
     }
     public void FromCamera(View view) {
 
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, 1);
-        }
+        Log.i("camera", "startCameraActivity()");
+        File file = new File(getPackageName());
+        Uri outputFileUri = Uri.fromFile(file);
+        Intent intent = new Intent(
+                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+        startActivityForResult(intent, 1);
+
     }
 
     public void FromCard(View view) {
-        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent i = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, 2);
     }
 
@@ -82,28 +100,10 @@ public class AjoutElementGenreActivity extends Methodes {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK
+        if (requestCode == 2 && resultCode == RESULT_OK
                 && null != data) {
 
             Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-            path = picturePath;
-
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            ImageView rotate = (ImageView) findViewById(R.id.rotate);
-            rotate.setImageBitmap(imageBitmap);
-            /**Toast.makeText(this, "Image saved to:\n" +
-                    data.getData(), Toast.LENGTH_LONG).show();*/
-          /**Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContentResolver().query(selectedImage,
@@ -118,35 +118,12 @@ public class AjoutElementGenreActivity extends Methodes {
             image.setImageBitmap(bitmap);
 
             if (bitmap != null) {
-                path = picturePath;
                 ImageView rotate = (ImageView) findViewById(R.id.rotate);
-                rotate.setImageBitmap(bitmap);
-            }*/
+
+            }
+
         } else {
-            if (requestCode == 2 && resultCode == RESULT_OK
-                    && null != data) {
 
-                Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-                Cursor cursor = getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String picturePath = cursor.getString(columnIndex);
-                cursor.close();
-
-                bitmap = BitmapFactory.decodeFile(picturePath);
-                image.setImageBitmap(bitmap);
-
-                if (bitmap != null) {
-                    path = picturePath;
-                    ImageView rotate = (ImageView) findViewById(R.id.rotate);
-                    rotate.setImageBitmap(bitmap);
-                }
-
-            }else{
             Log.i("SonaSys", "resultCode: " + resultCode);
             switch (resultCode) {
                 case 0:
@@ -161,7 +138,6 @@ public class AjoutElementGenreActivity extends Methodes {
         }
 
     }
-    }
 
     protected void onPhotoTaken() {
         // Log message
@@ -175,31 +151,29 @@ public class AjoutElementGenreActivity extends Methodes {
 
 
     }
-    public void suite(View view){
 
-        Livre livre = (Livre)getIntent().getSerializableExtra("livre");
 
-        Spinner genre_s = (Spinner) findViewById(R.id.Genrespinner);
+    public void suite2Modif(View view){
+        Livre livre = (Livre) getIntent().getSerializableExtra("livreDe");
+
+        Spinner genre_s = (Spinner) findViewById(R.id.GenrespinnerModif);
         String genre = genre_s.getSelectedItem().toString();
         livre.setGenre(genre);
 
-        EditText emprunte = (EditText)findViewById(R.id.emprunte);
+        EditText emprunte = (EditText)findViewById(R.id.emprunteModif);
         String emprunte_s = emprunte.getText().toString();
 
         livre.setEmprunte(emprunte_s);
 
-        EditText prete = (EditText)findViewById(R.id.prete);
+        EditText prete = (EditText)findViewById(R.id.preteModif);
         String prete_s = prete.getText().toString();
 
         livre.setPrete(prete_s);
-        livre.setImage(path);
 
-        Intent intent = new Intent(this,AjoutElementSuiteActivity.class);
-        intent.putExtra("livre2",livre);
+
+        Intent intent = new Intent(this,Modification3Activity.class);
+        intent.putExtra("livreDe",livre);
 
         startActivity(intent);
-
-
     }
-
 }

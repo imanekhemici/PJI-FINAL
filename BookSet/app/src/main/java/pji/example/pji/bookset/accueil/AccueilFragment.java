@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +22,6 @@ import pji.example.pji.implementation.base.DatabaseManager;
  * Created by raissa on 18/04/15.
  */
 public class AccueilFragment extends Fragment {
-    public AccueilFragment() {
-
-    }
-
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
@@ -37,8 +32,7 @@ public class AccueilFragment extends Fragment {
             ListView view = (ListView) rootView.findViewById(R.id.listLivre) ;
 
             LivreDaoImpl livreDao = DatabaseManager.getInstance().getHelper().getLivreDao();
-            if(livreDao != null)
-            {
+            if(livreDao != null) {
                 List<Livre> livres = livreDao.findAll();
                 List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
                 HashMap<String, String> element;
@@ -55,15 +49,13 @@ public class AccueilFragment extends Fragment {
                 }
 
                 ListAdapter adapter = new SimpleAdapter(this.getActivity(), liste, R.layout.afficher_livre,
-                        new String[] {"titre", "auteur"},
-                        new int[] {R.id.titreaff, R.id.auteuraff });
+                        new String[]{"titre", "auteur"},
+                        new int[]{R.id.titreaff, R.id.auteuraff});
 
                 //Pour finir, on donne à la ListView le SimpleAdapter
 
                 view.setAdapter(adapter);
             }
-
-
             return rootView;
 
     }

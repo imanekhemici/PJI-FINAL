@@ -6,6 +6,8 @@
         android:name="android.permission.CAMERA"
         android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-function android:name = "android.hardware.camera" android:required = "false"/>
 
     <application
         android:allowBackup="true"
@@ -106,6 +108,14 @@
         <activity
             android:name=".modification.Modification1Activity"
             android:label="@string/title_activity_modification1" >
+        </activity>
+        <activity
+            android:name=".modification.Modification2Activity"
+            android:label="@string/title_activity_modification2" >
+        </activity>
+        <activity
+            android:name=".modification.Modification3Activity"
+            android:label="@string/title_activity_modification3" >
         </activity>
     </application>
 
