@@ -37,7 +37,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         PreparedQuery<Livre> requete = null;
         List<Livre> result = new ArrayList<Livre>();
         try {
-            requete = queryBuilder().where().eq("titre",titre).prepare();
+            requete = queryBuilder().where().like("titre","%"+titre+"%").prepare();
             result = query(requete);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,7 +47,21 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
     }
     public Livre findByTitre(String titre) throws SQLException {
 
-       return  findByTitle(titre).get(0);
+        PreparedQuery<Livre> requete = null;
+        List<Livre> result = new ArrayList<Livre>();
+        Livre livre= new Livre();
+        try {
+            requete = queryBuilder().where().eq("titre",titre).prepare();
+            result = query(requete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for(Livre livreA : result){
+            if(titre.equals(livreA.getTitre())){
+                livre = livreA;
+            }
+        }
+        return livre;
     }
     //Isbn
     public List findByIsbn(String isbn) {
@@ -70,7 +84,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         List result = new ArrayList();
 
         try {
-            requete = queryBuilder().where().eq("auteur",auteur).prepare();
+            requete = queryBuilder().where().like("auteur","%"+auteur+"%").prepare();
             result = query(requete);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,7 +99,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         List result = new ArrayList();
 
         try {
-            requete = queryBuilder().where().eq("genre",genre).prepare();
+            requete = queryBuilder().where().like("genre","%"+genre+"%").prepare();
             result = query(requete);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,7 +113,7 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         List result = new ArrayList();
 
         try {
-            requete = queryBuilder().where().eq("langue",langue).prepare();
+            requete = queryBuilder().where().like("langue","%"+langue+"%").prepare();
             result = query(requete);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -161,19 +175,6 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         }
         return resultat;
     }
-
-
-    public Livre findById(int id) {
-        Livre livres = new Livre();
-        try {
-            livres = (Livre) queryForId(id);
-        }catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return livres
-                ;
-    }
-
 
     public boolean existe(String titre) throws SQLException {
         List<Livre> all = queryForAll();

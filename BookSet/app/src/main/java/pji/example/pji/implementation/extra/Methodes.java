@@ -50,11 +50,7 @@ public class    Methodes  extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void scan(View view){
-        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-        intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-        startActivityForResult(intent, 0);
-    }
+
 
     public void ajouter(View view) throws SQLException {
         Intent intent = new Intent(this, AjouterElementActivity.class);

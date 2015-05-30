@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    style="@style/afficherLivre"
     android:id="@+id/livre"
     android:onClick="information"
     >
+
     <ImageView
         android:contentDescription="row"
         android:id="@+id/couverture"
@@ -19,20 +19,25 @@
     </ImageView>
 <LinearLayout
     android:orientation="vertical"
-    android:layout_width="348dp"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:weightSum="1">
     <TextView
         android:id="@+id/titreaff"
-        android:layout_width="118dp"
+        android:textColor="#cfd8dc"
+        android:textStyle="bold|italic"
+        android:layout_width="match_parent"
         android:layout_height="38dp"
         android:text="Titre"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
+
     <TextView
         android:id="@+id/auteuraff"
-        android:layout_width="106dp"
+        android:layout_width="match_parent"
+        android:textColor="#cfd8dc"
         android:layout_height="match_parent"
         android:text="Auteur"
         android:textSize="15sp" />
+
 </LinearLayout>
 </LinearLayout>
