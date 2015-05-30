@@ -42,6 +42,9 @@
     <string name="title_activity_resulat">ResulatActivity</string>
     <string name="title_activity_information">InformationActivity</string>
     <string name="title_activity_information_livre">InformationLivre</string>
+    <string name="title_choix_genre_fragment">Choix du genre à afficher</string>
+    <string name="title_afficher_livre_pargenre_fragment">Resultat</string>
+
 
 
     <string-array name="settings_array">
@@ -50,12 +53,14 @@
         <item>Panier</item>
         <item>Non lu(s)</item>
         <item>Lu(s)</item>
+        <item>Afficher par genre</item>
 
     </string-array>
 
     <string-array name="configurer_array">
-        <item>Ordre Alphabétique</item>
-        <item>Genre</item>
+        <item>Des auteurs</item>
+        <item>Des titres</item>
+        <item>Des Genre</item>
 
     </string-array>
 
@@ -66,7 +71,7 @@
     </string-array>
 
     <string name="pick_option_synchroniser">Vous souhaitez: </string>
-    <string name="pick_option_configurer">Afficher par : </string>
+    <string name="pick_option_configurer">Afficher par ordre alphabétique : </string>
 
     <string-array name="options_array">
         <item>Synchoniser avec un autre appareil</item>

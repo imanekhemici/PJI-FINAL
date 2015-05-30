@@ -42,6 +42,15 @@
             android:label="@string/title_activity_ajout_element_suite" >
         </activity>
         <activity
+            android:name=".accueil.ChoixGenreFragment"
+            android:label="@string/title_choix_genre_fragment" >
+        </activity>
+        <activity
+            android:name=".accueil.AfficherLivresParGenreFragment"
+            android:label="@string/title_afficher_livre_pargenre_fragment" >
+        </activity>
+
+        <activity
             android:name=".ajout.AjouterElementManSuite2Activity"
             android:label="@string/title_activity_ajouter_element_man_suite2" >
         </activity>

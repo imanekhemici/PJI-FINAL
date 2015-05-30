@@ -22,6 +22,8 @@ public interface LivreDao extends Dao<Livre, Integer> {
 
     public List findAllLus();
 
+    public List findAllThisGenre(String genre);
+
 
     public Livre findById(int id);
 
