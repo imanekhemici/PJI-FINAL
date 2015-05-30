@@ -42,9 +42,10 @@ public class AccueilFragment extends Fragment {
                 for (Livre livre : livres) {
 
                     element = new HashMap<String, Object>();
-
-                    element.put("titre",  livre.getTitre());
-                    element.put("auteur", livre.getAuteur());
+                    String livreTitre =  livre.getTitre().substring(0,1).toUpperCase() + livre.getTitre().substring(1).toLowerCase();
+                    String livreAuteur = livre.getAuteur().substring(0,1).toUpperCase() + livre.getAuteur().substring(1).toLowerCase();
+                    element.put("titre", livreTitre);
+                    element.put("auteur", livreAuteur);
 
 
                     final BitmapFactory.Options options = new BitmapFactory.Options();

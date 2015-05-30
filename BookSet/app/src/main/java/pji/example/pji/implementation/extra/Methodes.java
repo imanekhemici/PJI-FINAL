@@ -59,7 +59,8 @@ public class    Methodes  extends ActionBarActivity {
 
     public void information(View view) throws SQLException {
         TextView livreTitre = (TextView) view.findViewById(R.id.titreaff);
-        Livre livre = DatabaseManager.getInstance().getHelper().getLivreDao().findByTitre(livreTitre.getText().toString()) ;
+        String titre = livreTitre.getText().toString().toLowerCase();
+        Livre livre = DatabaseManager.getInstance().getHelper().getLivreDao().findByTitre(titre) ;
         Intent intent = new Intent(this,InformationActivity.class);
         intent.putExtra("livre1",livre);
         startActivity(intent);
