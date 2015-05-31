@@ -31,8 +31,8 @@ public class AfficheLivresParGenreFragment extends Fragment{
 
 
         View rootView = inflater.inflate(R.layout.fragment_affiche_livre_choix_genre, container, false);
-        Intent intent = this.getActivity().getIntent();
-        String genre = intent.getStringExtra("genreChoisi");
+        String genre=getArguments().getString("genreChoisi");
+
 
         ListView view = (ListView) rootView.findViewById(R.id.listLivre) ;
 

@@ -132,6 +132,7 @@
             android:name=".ajout.AjoutScannerActivity"
             android:label="@string/title_activity_ajout_scanner" >
         </activity>
+
     </application>
 
 </manifest>

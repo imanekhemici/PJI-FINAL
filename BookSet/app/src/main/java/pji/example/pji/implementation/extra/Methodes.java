@@ -115,7 +115,7 @@ public class    Methodes  extends ActionBarActivity {
 
     public void suiteAfficher(View view){
 
-        Intent intent = new Intent(this,AfficheLivresParGenreFragment.class);
+        Intent intent = new Intent(this,AccueilActivity.class);
         Spinner genre_s = (Spinner) findViewById(R.id.Genrespinner);
         String genre = genre_s.getSelectedItem().toString();
 

@@ -1,6 +1,7 @@
 package pji.example.pji.bookset.accueil;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -25,7 +26,7 @@ import pji.example.pji.implementation.base.DatabaseManager;
 import pji.example.pji.implementation.extra.Methodes;
 
 
-public class  AccueilActivity extends Methodes {
+public class  AccueilActivity extends Methodes{
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -103,6 +104,15 @@ public class  AccueilActivity extends Methodes {
         if (savedInstanceState == null) {
             selectItem(0);
         }
+
+        Intent intent = getIntent();
+        if (intent.getExtras() != null){
+        String message = intent.getStringExtra("genreChoisi");
+        Bundle bundle=new Bundle();
+        bundle.putString("genreChoisi", "message");
+        //set Fragmentclass Arguments
+        AfficheLivresParGenreFragment frag=new AfficheLivresParGenreFragment();
+        frag.setArguments(bundle);}
 
       /*  Spinner spinner = (Spinner) findViewById(R.id.configurer_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
