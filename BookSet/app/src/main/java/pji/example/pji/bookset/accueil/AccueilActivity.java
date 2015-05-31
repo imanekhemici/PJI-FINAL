@@ -107,12 +107,15 @@ public class  AccueilActivity extends Methodes{
 
         Intent intent = getIntent();
         if (intent.getExtras() != null){
-        String message = intent.getStringExtra("genreChoisi");
-        Bundle bundle=new Bundle();
-        bundle.putString("genreChoisi", "message");
-        //set Fragmentclass Arguments
-        AfficheLivresParGenreFragment frag=new AfficheLivresParGenreFragment();
-        frag.setArguments(bundle);}
+            String message = intent.getStringExtra("genreChoisi");
+
+            Bundle bundle=new Bundle();
+            bundle.putString("genreChoisi", "message");
+            //set Fragmentclass Arguments
+            AfficheLivresParGenreFragment frag=new AfficheLivresParGenreFragment();
+            frag.setArguments(bundle);
+            frag.getView();
+        }
 
       /*  Spinner spinner = (Spinner) findViewById(R.id.configurer_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout

@@ -15,20 +15,20 @@ import pji.example.pji.bookset.R;
  */
 public class ChoixGenreFragment extends Fragment {
 
-   public final static String EXTRA_MESSAGE= "";
-
     private View rootView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_choix_genre, container);
+        rootView = inflater.inflate(R.layout.fragment_choix_genre, container, false);
 
         Spinner spinner = (Spinner) rootView.findViewById(R.id.Genrespinner);
 
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this.getActivity(), R.array.genre_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+
 
         return rootView;
 

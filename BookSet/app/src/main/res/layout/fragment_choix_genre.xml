@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/annuler"
         android:id="@+id/annulerGenre"
-        android:onClick="annuler2"
+        android:onClick="annuler"
         android:width="193dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
