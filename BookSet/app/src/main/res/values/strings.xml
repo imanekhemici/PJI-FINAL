@@ -58,8 +58,8 @@
     </string-array>
 
     <string-array name="configurer_array">
-        <item>Des auteurs</item>
         <item>Des titres</item>
+        <item>Des auteurs</item>
         <item>Des Genre</item>
 
     </string-array>
