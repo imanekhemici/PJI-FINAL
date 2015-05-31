@@ -1,6 +1,7 @@
 package pji.example.pji.bookset.accueil;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,10 +26,13 @@ import pji.example.pji.implementation.base.DatabaseManager;
  */
 public class AccueilFragment extends Fragment {
 
+
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
         savedInstanceState) {
-
+            Intent intent = getActivity().getIntent();
+            int config = intent.getIntExtra("config",0);
             View rootView = inflater.inflate(R.layout.fragment_accueil, container, false);
 
             ListView view = (ListView) rootView.findViewById(R.id.listLivre) ;
@@ -38,6 +43,19 @@ public class AccueilFragment extends Fragment {
                 List<HashMap<String, Object>> liste = new ArrayList<HashMap<String, Object>>();
                 HashMap<String, Object> element;
 
+                switch (config){
+                    default:
+                        Collections.sort(livres,Livre.TITRE);
+                        break;
+                    case 1:
+                        Collections.sort(livres,Livre.AUTEUR);
+
+                        break;
+                    case 2:
+                        Collections.sort(livres,Livre.GENRE);
+
+                        break;
+                }
                 //Pour chaque personne dans notre répertoire…
                 for (Livre livre : livres) {
 

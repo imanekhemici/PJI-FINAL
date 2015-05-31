@@ -4,6 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import pji.example.pji.implementation.CollectionBdd.LivreDaoImpl;
 
@@ -154,6 +155,48 @@ public class Livre implements Serializable{
         return this.image;
     }
 
+
+    public static final Comparator<Livre> TITRE = new Comparator<Livre>() {
+
+
+        @Override
+        public int compare(Livre arg0, Livre arg1) {
+            // TODO Auto-generated method stub
+            Livre p = (Livre) arg0;
+            Livre q = (Livre) arg1;
+            if (p.getTitre().equals(q.getTitre())) {
+                return p.getAuteur().compareTo(q.getAuteur());
+            } else return (p.getTitre().compareTo(q.getTitre()));
+
+        }
+
+    };
+
+    public static final Comparator AUTEUR = new Comparator<Livre>() {
+
+        @Override
+        public int compare(Livre arg0, Livre arg1) {
+            Livre p = (Livre) arg0;
+            Livre q = (Livre) arg1;
+            if (p.getAuteur().equals(q.getAuteur())) {
+                return p.getGenre().compareTo(q.getGenre());
+            } else return p.getAuteur().compareTo(q.getAuteur());
+        }
+
+    };
+
+        public static final Comparator GENRE = new Comparator<Livre>() {
+
+            @Override
+            public int compare(Livre arg0,Livre arg1) {
+                Livre p=(Livre) arg0;
+                Livre q=(Livre) arg1;
+                if(p.getGenre().equals( q.getGenre()))
+                {
+                    return p.getTitre().compareTo(q.getTitre());
+                }  else return p.getGenre().compareTo(q.getGenre());
+            }
+        };
     /** A/D
      *
      */
