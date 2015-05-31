@@ -1,6 +1,8 @@
 package pji.example.pji.bookset.accueil;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -56,14 +58,14 @@ public class  AccueilActivity extends Methodes{
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mOptionsTitles = getResources().getStringArray(R.array.options_array);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[6];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_drawer, "Accueil");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_drawer, "Favoris");
         drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_drawer, "Panier");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_drawer, "Non lu(s)");
         drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_drawer, "Lu(s)");
-        drawerItem[5] = new ObjectDrawerItem(R.drawable.ic_drawer, "Afficher par genre");
+       /* drawerItem[5] = new ObjectDrawerItem(R.drawable.ic_drawer, "Afficher par genre");*/
 
 
         // set a custom shadow that overlays the main content when the drawer opens
@@ -105,17 +107,7 @@ public class  AccueilActivity extends Methodes{
             selectItem(0);
         }
 
-        Intent intent = getIntent();
-        if (intent.getExtras() != null){
-            String message = intent.getStringExtra("genreChoisi");
 
-            Bundle bundle=new Bundle();
-            bundle.putString("genreChoisi", "message");
-            //set Fragmentclass Arguments
-            AfficheLivresParGenreFragment frag=new AfficheLivresParGenreFragment();
-            frag.setArguments(bundle);
-            frag.getView();
-        }
 
       /*  Spinner spinner = (Spinner) findViewById(R.id.configurer_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -214,9 +206,9 @@ public class  AccueilActivity extends Methodes{
             case 4:
                 fragment = new LusFragment();
                 break;
-            case 5:
+            /*case 5:
                 fragment = new ChoixGenreFragment();
-                break;
+                break;*/
 
             default:
                 break;
