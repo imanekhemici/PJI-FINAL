@@ -9,12 +9,7 @@ import android.view.View;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import java.util.List;
-
 import pji.example.pji.bookset.R;
-import pji.example.pji.bookset.recherche.ResultatScannerActivity;
-import pji.example.pji.implementation.CollectionBdd.LivreDao;
-import pji.example.pji.implementation.base.DatabaseManager;
 import pji.example.pji.implementation.extra.Methodes;
 
 
@@ -52,6 +47,7 @@ public class AjouterActivity extends Methodes {
         IntentIntegrator integration = new IntentIntegrator(this);
         integration.initiateScan();
 
+
     }
 
     @Override
@@ -66,13 +62,12 @@ public class AjouterActivity extends Methodes {
                 }
                 final String result = scanResult.getContents();
                 if (result != null) {
-                    LivreDao livreBdd= DatabaseManager.getInstance().getHelper().getLivreDao();
-                    List livres = livreBdd.findByIsbn(result);
 
-                    Intent intent = new Intent(this, ResultatScannerActivity.class);
-                    intent.putExtra("livres",(java.io.Serializable)livres);
+
+                    Intent intent = new Intent(this, AjoutScannerActivity.class);
+                    intent.putExtra("isbnScan",result);
                     startActivity(intent);
-                    
+
                 }
                 break;
             default:
