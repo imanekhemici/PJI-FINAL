@@ -36,7 +36,7 @@
         </activity>
         <activity
             android:name=".ajout.AjouterElementActivity"
-            android:label="@string/title_activity_ajouter_element_activity"
+            android:label="Compléter"
             android:parentActivityName=".ajout.AjouterActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,15 +44,24 @@
         </activity>
         <activity
             android:name=".ajout.AjoutElementSuiteActivity"
-            android:label="@string/title_activity_ajout_element_suite" >
+            android:label="Compléter" >
         </activity>
         <activity
+            android:name=".accueil.ChoixGenreFragment"
+            android:label="@string/title_choix_genre_fragment" >
+        </activity>
+        <activity
+            android:name=".accueil.AfficherLivresParGenreFragment"
+            android:label="@string/title_afficher_livre_pargenre_fragment" >
+        </activity>
+
+        <activity
             android:name=".ajout.AjouterElementManSuite2Activity"
-            android:label="@string/title_activity_ajouter_element_man_suite2" >
+            android:label="Compléter" >
         </activity>
         <activity
             android:name=".ajout.ConfirmationAjout"
-            android:label="@string/title_activity_confirmation_ajout" >
+            android:label="Confirmation" >
         </activity>
         <activity
             android:name=".ajout.Confirmation"
@@ -60,15 +69,15 @@
         </activity>
         <activity
             android:name=".recherche.RechercheChoixActivity"
-            android:label="@string/title_activity_recherche_choix" >
+            android:label="Choix" >
         </activity>
         <activity
             android:name=".recherche.RechercheActivity"
-            android:label="@string/title_activity_recherche" >
+            android:label="Recherche" >
         </activity>
         <activity
             android:name=".recherche.ResulatActivity"
-            android:label="@string/title_activity_resulat" >
+            android:label="Resultat" >
         </activity>
         <activity android:name="jim.h.common.android.zxinglib.CaptureActivity"
             android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"
@@ -77,27 +86,27 @@
 
         <activity
             android:name=".InformationActivity"
-            android:label="@string/title_activity_information" >
+            android:label="Information" >
         </activity>
         <activity
             android:name=".InformationLivre"
-            android:label="@string/title_activity_information_livre" >
+            android:label="Information" >
         </activity>
         <activity
             android:name=".ajout.AjoutElementGenreActivity"
-            android:label="@string/title_activity_ajout_element_genre" >
+            android:label="Compléter" >
         </activity>
         <activity
             android:name=".modification.Modification1Activity"
-            android:label="@string/title_activity_modification1" >
+            android:label="Modifier" >
         </activity>
         <activity
             android:name=".modification.Modification2Activity"
-            android:label="@string/title_activity_modification2" >
+            android:label="Modifier" >
         </activity>
         <activity
             android:name=".modification.Modification3Activity"
-            android:label="@string/title_activity_modification3" >
+            android:label="Modifier" >
         </activity>
     </application>
 

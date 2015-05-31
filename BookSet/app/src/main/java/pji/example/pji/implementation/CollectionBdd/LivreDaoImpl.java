@@ -150,6 +150,21 @@ public class LivreDaoImpl extends BaseDaoImpl<Livre,Integer> implements  LivreDa
         return resultat;
     }
 
+    public List findAllThisGenre(String genre){
+
+        List<Livre> resultat = new ArrayList();
+        List<Livre> all = new ArrayList();
+        all =  findAll();
+        for(Livre livre1 : all){
+            if(livre1.getGenre().equals(genre)){
+                resultat.add(livre1);
+            }
+
+        }
+        return resultat;
+    }
+
+
     public List findAllNonLus(){
         List<Livre> resultat = new ArrayList();
         List<Livre> all = new ArrayList();

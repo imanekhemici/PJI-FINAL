@@ -55,13 +55,14 @@ public class  AccueilActivity extends Methodes {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mOptionsTitles = getResources().getStringArray(R.array.options_array);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[6];
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_drawer, "Accueil");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_drawer, "Favoris");
         drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_drawer, "Panier");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_drawer, "Non lu(s)");
         drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_drawer, "Lu(s)");
+        drawerItem[5] = new ObjectDrawerItem(R.drawable.ic_drawer, "Afficher par genre");
 
 
         // set a custom shadow that overlays the main content when the drawer opens
@@ -197,7 +198,11 @@ public class  AccueilActivity extends Methodes {
             case 3:
                 fragment = new NonLusFragment();
                 break;
-            case 4: fragment = new LusFragment();
+            case 4:
+                fragment = new LusFragment();
+                break;
+            case 5:
+                fragment = new ChoixGenreFragment();
                 break;
 
             default:
@@ -255,5 +260,7 @@ public class  AccueilActivity extends Methodes {
             selectItem(position);
         }
     }
+
+
 
 }

@@ -49,7 +49,7 @@ public class AccueilFragment extends Fragment {
 
 
                     final BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inSampleSize = 8;
+                    options.inSampleSize = 14;
                     Bitmap bm = BitmapFactory.decodeFile(livre.getImage(),options);
 
                     element.put("image",bm);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import pji.example.pji.bookset.InformationActivity;
 import pji.example.pji.bookset.R;
 import pji.example.pji.bookset.accueil.AccueilActivity;
+import pji.example.pji.bookset.accueil.AfficheLivresParGenreFragment;
 import pji.example.pji.bookset.ajout.AjouterActivity;
 import pji.example.pji.bookset.ajout.AjouterElementActivity;
 import pji.example.pji.bookset.modification.Modification1Activity;
@@ -108,6 +110,20 @@ public class    Methodes  extends ActionBarActivity {
         Intent intent = new Intent(this, Modification1Activity.class);
         intent.putExtra("livre1",livre);
         startActivity(intent);
+
+    }
+
+    public void suiteAfficher(View view){
+
+        Intent intent = new Intent(this,AfficheLivresParGenreFragment.class);
+        Spinner genre_s = (Spinner) findViewById(R.id.Genrespinner);
+        String genre = genre_s.getSelectedItem().toString();
+
+
+        intent.putExtra("genreChoisi",genre);
+
+        startActivity(intent);
+
 
     }
 }

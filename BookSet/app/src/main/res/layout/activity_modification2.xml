@@ -1,22 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pji.example.pji.bookset.modification.Modification2Activity">
+    tools:context="pji.example.pji.bookset.modification.Modification2Activity"
+    style="@style/Activity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/BookSet"
         android:text="Book Set"
         android:id="@+id/app_name"
         android:layout_alignParentTop="true"
-        android:background="@color/button_material_light"
         android:layout_above="@+id/biblio"
         android:elegantTextHeight="true"
-        android:textAlignment="center"
         android:textIsSelectable="true"
-        android:textStyle="bold|normal|italic"
-        android:textSize="80px"
-        android:gravity="center"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -24,46 +19,31 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Biblio"
         android:text="@string/annuler"
         android:id="@+id/annuler"
         android:onClick="annuler"
-        android:width="193dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Ajout"
         android:text="@string/suivant"
         android:id="@+id/suivant"
-        android:width="193dp"
         android:onClick="suite2Modif"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/annuler"
-        android:layout_toEndOf="@+id/annuler" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Genre:"
-        android:id="@+id/genre"
-        android:layout_marginTop="46dp"
-        android:layout_below="@+id/app_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/GenrespinnerModif"
-        android:layout_alignTop="@+id/genre"
-        android:layout_toRightOf="@+id/genre"
-        android:layout_toEndOf="@+id/genre" />
+        android:layout_below="@+id/app_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -73,9 +53,7 @@
         android:width="300dp"
         android:gravity="center"
         android:layout_below="@+id/GenrespinnerModif"
-        android:layout_alignLeft="@+id/genre"
-        android:layout_alignStart="@+id/genre"
-        android:layout_marginTop="25dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -92,24 +70,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rotateModif"
-        android:src="@drawable/url"
         android:layout_below="@+id/preteModif"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/appareilModif"
         android:layout_above="@+id/annuler"
-        android:layout_toLeftOf="@+id/suivant"
-        android:layout_toStartOf="@+id/suivant" />
+        android:layout_alignRight="@+id/preteModif"
+        android:layout_alignEnd="@+id/preteModif" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/appareilModif"
-        android:layout_marginTop="33dp"
         android:src="@drawable/appa"
         android:onClick="FromCamera"
         android:layout_alignTop="@+id/rotateModif"
-        android:layout_alignRight="@+id/preteModif"
-        android:layout_alignEnd="@+id/preteModif" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"

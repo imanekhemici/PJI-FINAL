@@ -51,11 +51,13 @@
         <FrameLayout
             style="@style/listLivre"
             android:id="@+id/content_frame"
-            android:layout_alignBottom="@+id/recherche"
-            android:layout_below="@+id/biblio">
+            android:layout_below="@+id/biblio"
+            android:layout_above="@+id/recherche"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <ListView
-                android:layout_width="wrap_content"
+                android:layout_width="389dp"
                 android:layout_height="390dp"
                 android:id="@+id/listLivre"
                 android:layout_gravity="right|center_vertical"

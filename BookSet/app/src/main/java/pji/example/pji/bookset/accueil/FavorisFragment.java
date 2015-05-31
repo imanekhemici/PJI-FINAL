@@ -1,11 +1,12 @@
 package pji.example.pji.bookset.accueil;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -37,24 +38,32 @@ public class FavorisFragment extends Fragment {
         if(livreDao != null)
         {
             List<Livre> livres = livreDao.findAllFavoris();
-            List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
-            HashMap<String, String> element;
+            List<HashMap<String, Object>> liste = new ArrayList<HashMap<String, Object>>();
+            HashMap<String, Object> element;
 
             //Pour chaque personne dans notre répertoire…
             for (Livre livre : livres) {
 
-                element = new HashMap<String, String>();
+                element = new HashMap<String, Object>();
+                String livreTitre =  livre.getTitre().substring(0,1).toUpperCase() + livre.getTitre().substring(1).toLowerCase();
+                String livreAuteur = livre.getAuteur().substring(0,1).toUpperCase() + livre.getAuteur().substring(1).toLowerCase();
+                element.put("titre", livreTitre);
+                element.put("auteur", livreAuteur);
 
-                element.put("titre", livre.getTitre());
-                element.put("auteur", livre.getAuteur());
+
+                final BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 14;
+                Bitmap bm = BitmapFactory.decodeFile(livre.getImage(),options);
+
+                element.put("image",bm);
                 liste.add(element);
 
             }
 
-            ListAdapter adapter = new SimpleAdapter(this.getActivity(), liste, R.layout.afficher_livre,
-                    new String[] {"titre", "auteur"},
-                    new int[] {R.id.titreaff, R.id.auteuraff });
-
+            SimpleAdapter adapter = new SimpleAdapter(this.getActivity(), liste, R.layout.afficher_livre,
+                    new String[]{"titre", "auteur","image"},
+                    new int[]{R.id.titreaff, R.id.auteuraff,R.id.couverture});
+            adapter.setViewBinder(new AfficherLivre());
             //Pour finir, on donne à la ListView le SimpleAdapter
 
             view.setAdapter(adapter);

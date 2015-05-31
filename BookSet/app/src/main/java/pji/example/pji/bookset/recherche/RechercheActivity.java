@@ -27,13 +27,15 @@ public class RechercheActivity extends Methodes {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recherche);
         Spinner spinner = (Spinner) findViewById(R.id.recherche_spiner);
+
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.recherche_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);        EditText valeur = (EditText) findViewById(R.id.recherche_valeur);
+
     }
 
 

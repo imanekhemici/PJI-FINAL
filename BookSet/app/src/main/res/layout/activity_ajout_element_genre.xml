@@ -30,25 +30,14 @@
         android:layout_toRightOf="@+id/annuler"
         android:layout_toEndOf="@+id/annuler" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Genre:"
-        android:id="@+id/genre"
-        android:layout_marginTop="46dp"
-        android:layout_below="@+id/app_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp" />
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Genrespinner"
-        android:layout_alignTop="@+id/genre"
-        android:layout_toRightOf="@+id/genre"
-        android:layout_toEndOf="@+id/genre" />
+        android:layout_below="@+id/app_name"
+        android:layout_alignRight="@+id/appareil"
+        android:layout_alignEnd="@+id/appareil"
+        android:layout_marginTop="57dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,9 +47,7 @@
         android:width="300dp"
         android:gravity="center"
         android:layout_below="@+id/Genrespinner"
-        android:layout_alignLeft="@+id/genre"
-        android:layout_alignStart="@+id/genre"
-        android:layout_marginTop="25dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -77,24 +64,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rotate"
-        android:
-        android:layout_below="@+id/prete"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:clickable="true"
         android:layout_above="@+id/annuler"
-        android:layout_toStartOf="@+id/appareil"
-        android:layout_toLeftOf="@+id/appareil" />
+        android:layout_toLeftOf="@+id/appareil"
+        android:layout_alignLeft="@+id/prete"
+        android:layout_alignStart="@+id/prete"
+        android:layout_alignTop="@+id/appareil" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/appareil"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="41dp"
         android:src="@drawable/appa"
         android:onClick="FromCamera"
-        android:layout_alignTop="@+id/rotate"
-        android:layout_alignRight="@+id/prete"
-        android:layout_alignEnd="@+id/prete" />
+        android:layout_below="@+id/prete"
+        android:layout_toRightOf="@+id/prete"
+        android:layout_toEndOf="@+id/prete" />
 
     <ImageButton
         android:layout_width="wrap_content"
