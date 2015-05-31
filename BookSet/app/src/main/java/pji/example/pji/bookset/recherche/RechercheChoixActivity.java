@@ -8,9 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import jim.h.common.android.zxinglib.integrator.IntentIntegrator;
-import jim.h.common.android.zxinglib.integrator.IntentResult;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import java.util.List;
+
 import pji.example.pji.bookset.R;
+import pji.example.pji.implementation.CollectionBdd.LivreDao;
+import pji.example.pji.implementation.base.DatabaseManager;
 import pji.example.pji.implementation.extra.Methodes;
 
 
@@ -25,9 +30,8 @@ public class RechercheChoixActivity extends Methodes {
     }
 
     public void scan(View view){
-
-           IntentIntegrator.initiateScan(RechercheChoixActivity.this, R.layout.capture,
-                        R.id.viewfinder_view, R.id.preview_view, true);
+        IntentIntegrator integration = new IntentIntegrator(this);
+        integration.initiateScan();
 
     }
 
@@ -43,12 +47,19 @@ public class RechercheChoixActivity extends Methodes {
                 }
                 final String result = scanResult.getContents();
                 if (result != null) {
-                    handler.post(new Runnable() {
+                    LivreDao livreBdd= DatabaseManager.getInstance().getHelper().getLivreDao();
+                    List livres = livreBdd.findByIsbn(result);
+
+                    Intent intent = new Intent(this, ResultatScannerActivity.class);
+                    intent.putExtra("livres",(java.io.Serializable)livres);
+                    startActivity(intent);
+                   /** handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            txtScanResult.setText(result);
+                                txtScanResult.setText(result);
+
                         }
-                    });
+                    });*/
                 }
                 break;
             default:

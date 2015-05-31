@@ -54,7 +54,7 @@
             style="@style/RechercheManuelle"
             android:layout_height="wrap_content"
             android:text="@string/scan"
-            android:onClick="scan"
+            android:onClick="scanAjout"
             android:id="@+id/scan"
             android:layout_centerVertical="true"
             android:layout_alignRight="@+id/button"

@@ -26,8 +26,6 @@ public class ResulatActivity extends Methodes {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resulat);
 
-
-
         ListView view = (ListView) findViewById(R.id.listResultat) ;
         List<HashMap<String, Object>> liste = new ArrayList<HashMap<String, Object>>();
         HashMap<String, Object> element;
